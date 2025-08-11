@@ -26,5 +26,14 @@
       "name": "Русский",
       "path": "lang/ru.json"
     }
-  ]
+  ],
+  "url": "https://github.com/unimate/band-of-blades-sheets",
+  "download": "https://github.com/unimate/band-of-blades-sheets/releases/download/v1.0/module.zip",
+  "manifest": "https://github.com/unimate/band-of-blades-sheets/releases/latest/download/module.json",
+  "readme": "https://github.com/unimate/band-of-blades-sheets/blob/main/README.md",
+  "bugs": "https://github.com/unimate/band-of-blades-sheets/issues",
+  "changelog": "https://github.com/unimate/band-of-blades-sheets/releases",
+  "flags": {
+    "allowBugReporter": true
+  }
 }
