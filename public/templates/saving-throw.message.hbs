@@ -1,0 +1,34 @@
+<div class="band-of-blades-sheets band-of-blades-sheets__chat-item">
+  <div class="band-of-blades-sheets__chat-item--title">
+    {{localize (concat "band-of-blades-sheets." attribute.label)}}
+  </div>
+
+  <div class="band-of-blades-sheets__chat-item--result">
+    {{#if (eq result.state "critical")}}
+      <span class="band-of-blades-sheets__chat-item--state band-of-blades-sheets__chat-item--state-critical">
+        <b>{{localize "band-of-blades-sheets.roll_result.resist.critical"}}</b>
+      </span>
+    {{else}}
+    <span class="band-of-blades-sheets__chat-item--state band-of-blades-sheets__chat-item--state-standard">
+      {{localize "band-of-blades-sheets.roll_result.resist.common"}}
+    </span>
+    {{/if}}
+  </div>
+
+  <div class="band-of-blades-sheets__chat-item--description">
+    <span>{{{localize "band-of-blades-sheets.roll_result.resist.description"}}}</span>
+    {{#if (eq result.state "critical")}}
+      {{{localize "band-of-blades-sheets.roll_result.resist.results.critical"}}}
+    {{else}}
+      {{{localize "band-of-blades-sheets.roll_result.resist.results.common"}}} <b>{{result.dice}}</b>
+    {{/if}}
+
+  </div>
+  <div class="band-of-blades-sheets__chat-item--rolls">
+    {{#each result.dices}}
+      <div class="band-of-blades-sheets__chat-item--roll band-of-blades-sheets__chat-item--roll_d-{{this}}">
+        {{this}}
+      </div>
+    {{/each}}
+  </div>
+</div>

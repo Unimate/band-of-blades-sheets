@@ -1,0 +1,744 @@
+{
+  "band-of-blades-sheets": {
+    "notes": "Notes:",
+    "result": "Result:",
+    "roll": "Roll",
+    "stress": "Stress",
+    "trauma": "Trauma",
+    "corruption": "Corruption",
+    "blight": "Blight",
+    "trauma:": "Trauma:",
+    "cold": "cold",
+    "haunted": "haunted",
+    "obsessed": "obsessed",
+    "paranoid": "paranoid",
+    "reckless": "reckless",
+    "soft": "soft",
+    "unstable": "unstable",
+    "vicious": "vicious",
+    "conditions:": "Conditions:",
+    "anathema": "anathema",
+    "host": "host",
+    "hunger": "hunger",
+    "miasma": "miasma",
+    "mutated": "mutation",
+    "rage": "rage",
+    "rot": "rot",
+    "visions": "visions",
+    "insight": "Insight",
+    "rig": "Rig",
+    "research": "Research",
+    "scout": "Scout",
+    "resolve": "Resolve",
+    "consort": "Consort",
+    "discipline": "Discipline",
+    "marshal": "Marshal",
+    "sway": "Sway",
+    "prowess": "Prowess",
+    "maneuver": "Maneuver",
+    "shoot": "Shoot",
+    "skirmish": "Skirmish",
+    "wreck": "Wreck",
+    "custom": "Custom",
+    "specialist": "Specialist",
+    "aim": "Aim",
+    "potency": "Potency",
+    "anchor": "Anchor",
+    "channels": "Channels",
+    "grit": "Grit",
+    "scrounge": "Scrounge",
+    "weave": "Weave",
+    "doctor": "Doctor",
+    "harm": "Harm",
+    "death": "Death",
+    "need_help": "Need help",
+    "less_effect": "Less effect",
+    "load": {
+      "title": "Load",
+      "utility": "Utility",
+      "light": "Light",
+      "normal": "Normal",
+      "heavy": "Heavy",
+      "items": {
+        "ammo": {
+          "name": "Ammo"
+        },
+        "armor": {
+          "name": "Armor"
+        },
+        "bandolier": {
+          "name": "Alchemical Bandolier"
+        },
+        "battlefield_banner": {
+          "name": "Battlefield Banner"
+        },
+        "black_arrows": {
+          "name": "Black Arrows"
+        },
+        "black_shot": {
+          "name": "Black Shot"
+        },
+        "books_scrolls": {
+          "name": "Books & Scrolls"
+        },
+        "camo_gear": {
+          "name": "Camo Gear"
+        },
+        "climbing_kit": {
+          "name": "Climbing Kit"
+        },
+        "compass_maps": {
+          "name": "Compass & Maps"
+        },
+        "cooking_kit": {
+          "name": "Cooking Kit"
+        },
+        "crimson_shot": {
+          "name": "Crimson Shot"
+        },
+        "explosive_charge": {
+          "name": "Explosive Charge"
+        },
+        "family_weapon": {
+          "name": "Family Weapon"
+        },
+        "fine_armor": {
+          "name": "Fine Armor"
+        },
+        "fine_bow_arrows": {
+          "name": "Fine Bow & Arrows"
+        },
+        "fine_compass_maps": {
+          "name": "Fine Compass & Maps"
+        },
+        "fine_hand_weapon": {
+          "name": "Fine Hand Weapon"
+        },
+        "fine_heavy_armor": {
+          "name": "Fine Heavy Armor",
+          "description": "Replaces Armor."
+        },
+        "fine_heavy_weapon": {
+          "name": "Fine Heavy Weapon"
+        },
+        "fine_kit": {
+          "name": "Fine Kit",
+          "description": "Pick one: Medic, Climbing, Cooking, Repair, Soldier’s, or Wrecking."
+        },
+        "fine_lenses": {
+          "name": "Fine Lenses"
+        },
+        "fine_long_rifle": {
+          "name": "Fine Long Rifle"
+        },
+        "fine_luxury_item": {
+          "name": "Fine Luxury Item"
+        },
+        "fine_medic_kit": {
+          "name": "Fine Medic Kit"
+        },
+        "fine_ornate_cloak": {
+          "name": "Fine Ornate Cloak"
+        },
+        "fine_pistol": {
+          "name": "Fine Pistol"
+        },
+        "fine_reliquary": {
+          "name": "Fine Reliquary"
+        },
+        "fine_shield": {
+          "name": "Fine Shield"
+        },
+        "fine_tower_shield": {
+          "name": "Fine Tower Shield",
+          "description": "Replaces any Shield."
+        },
+        "fine_wrecking_kit": {
+          "name": "Fine Wrecking Kit"
+        },
+        "fitted_heavy_plate": {
+          "name": "Fitted Heavy Plate",
+          "description": "Replaces any Armor."
+        },
+        "flare_gun": {
+          "name": "Flare Gun"
+        },
+        "fresh_food": {
+          "name": "Fresh Food"
+        },
+        "gun_maintenance_kit": {
+          "name": "Gun Maintenance Kit"
+        },
+        "grenade": {
+          "name": "Grenade"
+        },
+        "hand_weapon": {
+          "name": "Hand Weapon"
+        },
+        "heavy_shield": {
+          "name": "Heavy Shield"
+        },
+        "heavy_weapon": {
+          "name": "Heavy Weapon"
+        },
+        "holy_symbol_of_mercy": {
+          "name": "Holy Symbol of Mercy"
+        },
+        "large_weapon": {
+          "name": "Large Weapon"
+        },
+        "lenses": {
+          "name": "Lenses"
+        },
+        "mark_of_the_healing_god": {
+          "name": "Mark of the Healing God"
+        },
+        "medic_kit": {
+          "name": "Medic Kit"
+        },
+        "memento_of_home": {
+          "name": "Memento of Home"
+        },
+        "musket": {
+          "name": "Musket"
+        },
+        "naive_hope": {
+          "name": "Naive Hope"
+        },
+        "oil": {
+          "name": "Oil"
+        },
+        "pistol": {
+          "name": "Pistol"
+        },
+        "utility_mark_1": {
+          "name": "+1 Utility"
+        },
+        "utility_mark_2": {
+          "name": "+2 Utility"
+        },
+        "reliquary": {
+          "name": "Reliquary"
+        },
+        "repair_kit": {
+          "name": "Repair Kit"
+        },
+        "shield": {
+          "name": "Shield"
+        },
+        "soldier_kit": {
+          "name": "Soldier's Kit"
+        },
+        "supplies": {
+          "name": "Supplies"
+        },
+        "tents_camping_gear": {
+          "name": "Tents & Camping Gear"
+        },
+        "tonics": {
+          "name": "Tonics"
+        },
+        "two_fine_pistols": {
+          "name": "2 Fine Pistols"
+        },
+        "winter_clothing": {
+          "name": "Winter Clothing"
+        },
+        "wrecking_kit": {
+          "name": "Wrecking Kit"
+        }
+      }
+    },
+    "manage_abilities": "Manage abilities",
+    "heritage": {
+      "select": "Heritage",
+      "bartan": {
+        "name": "Bartan",
+        "traits": {
+          "warm": {
+            "name": "Warm",
+            "description": "<b>+1 consort</b> (max 2)."
+          },
+          "pious": {
+            "name": "Pious",
+            "description": "Always equip a Reliquary."
+          },
+          "stoic": {
+            "name": "Stoic",
+            "description": "<b>+1d</b> to <b>prowess</b> resist."
+          },
+          "educated": {
+            "name": "Educated",
+            "description": "<b>+1 research</b> (max 2)."
+          }
+        }
+      },
+      "orite": {
+        "name": "Orite",
+        "traits": {
+          "noble": {
+            "name": "Noble",
+            "description": "Boost <b>1 campaign</b> action for you."
+          },
+          "connected": {
+            "name": "Connected",
+            "description": "<b>+1 sway</b> (max 3)."
+          },
+          "vengeful": {
+            "name": "Vengeful",
+            "description": "<b>Potency</b> when harm penalized."
+          },
+          "stern": {
+            "name": "Stern",
+            "description": "<b>+1 discipline</b> (max 2)."
+          }
+        }
+      },
+      "panyar": {
+        "name": "Panyar",
+        "traits": {
+          "artisan": {
+            "name": "Artisan",
+            "description": "You can have up to <b>4 rig</b>."
+          },
+          "traveler": {
+            "name": "Traveler",
+            "description": "Fast/quiet in <b>normal</b> load."
+          },
+          "shrewd": {
+            "name": "Shrewd",
+            "description": "<b>+1d</b> to <b>insight</b> resist."
+          },
+          "marked": {
+            "name": "Marked",
+            "description": "<b>+2d</b> to resist corruption."
+          }
+        }
+      },
+      "zemyati": {
+        "name": "Zemyati",
+        "traits": {
+          "tough": {
+            "name": "Tough",
+            "description": "Ignore level 1 harm penalties."
+          },
+          "bold": {
+            "name": "Bold",
+            "description": "<b>+1d</b> to resist on <b>desperate</b> actions."
+          },
+          "loyal": {
+            "name": "Loyal",
+            "description": "<b>+1d</b> in group actions."
+          },
+          "stubborn": {
+            "name": "Stubborn",
+            "description": "<b>+1d</b> to <b>resolve</b> resist."
+          }
+        }
+      }
+    },
+    "specialization": {
+      "select": "Specialization",
+      "heavy": {
+        "name": "Heavy",
+        "action": "<b>Anchor</b> is an action that Heavies specialize and train in. Unlike most actions it’s not rolled, but its rating determines its uses per mission. While on a mission, you may spend <b>anchor</b> uses to fight as a small group. This means you can face groups of lesser undead without loss of <b>effect</b>.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through might or fortitude.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Skirmish:</i> <b>2</b>, <i>Wreck:</i> <b>1</b>.<br><b>Will receive special ability:</b> <i>Anchor:</i> <b>1</b>."
+      },
+      "medic": {
+        "name": "Medic",
+        "action": "<b>Doctor</b> is an action that Medics specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>doctor</b> uses to treat a fellow Legionnaire so they ignore all wound penalties for a scene. <b>Level 4 harm</b> is still lethal.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through medical knowledge or emotional comfort.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Research:</i> <b>2</b>, <i>Maneuver:</i> <b>1</b>, <i>Consort:</i> <b>1</b>, <i>Discipline:</i> <b>1</b>.<br><b>Will receive special ability:</b> <i>Doctor:</i> <b>1</b>."
+      },
+      "officer": {
+        "name": "Officer",
+        "action": "<b>Channels</b> is an action that Officers specialize in. Unlike most actions it’s not rolled, but its rating determines its uses per mission. You may spend <b>channels</b> uses to <b>acquire an asset</b> for your squad in a <b>flashback</b>. Roll <b>sway</b> to determine quality. You can spend additional <b>uses</b> to improve the quality as per <b>supply</b> rules. Such assets are temporary or \"on loan\" and will go away when the mission ends.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through enforcing discipline or strategic planning.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Discipline:</i> <b>1</b>, <i>Sway:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Channels:</i> <b>1</b>."
+      },
+      "scout": {
+        "name": "Scout",
+        "action": "<b>Scrounge</b> is an action that Scouts specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>scrounge</b> uses to find safe and secure shelter or one <b>load</b> worth of <b>supplies</b> for everyone in your squad.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through stealth or foresight.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Maneuver:</i> <b>1</b>, <i>Scout:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Scrounge:</i> <b>1</b>."
+      },
+      "sniper": {
+        "name": "Sniper",
+        "action": "<b>Aim</b> is an action that Snipers specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>aim</b> uses to increase the <b>effect</b> level of a shot. This means you can sometimes take out large, dangerous enemies with a single bullet.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through keen observation or key shots.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Scout:</i> <b>1</b>, <i>Shoot:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Aim:</i> <b>1</b>."
+      },
+      "rookie": {
+        "name": "Rookie",
+        "action": "As a Rookie you don’t get a <b>Specialist action</b> of your own. You will get one (<b>grit</b>) when you advance and become a Soldier. You advance to Soldier by taking the Not a Rookie Anymore ability, and they must take this ability as their first playbook advance.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad by staying out of the way or surviving despite the odds.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Initial skills:</b> <i>Maneuver:</i> <b>1</b>, <i>Skirmish:</i> <b>1</b>, <i>Consort:</i> <b>1</b>.<br>Could be promoted to a <b>Soldier</b>."
+      },
+      "soldier": {
+        "name": "Soldier",
+        "action": "<b>Grit</b> is an action that Soldiers specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. You may spend <b>grit</b> uses to add <b>+2d</b> to a <b>resistance</b> roll. The <b>grit</b> use must be spent before the roll. You may only spend <b>1 grit use</b> this way per roll.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through courage or determination.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Initial skills:</b> <i>Maneuver:</i> <b>1</b>, <i>Skirmish:</i> <b>1</b>, <i>Consort:</i> <b>1</b>.<br><b>Will receive special ability:</b> <i>Grit:</i> <b>1</b>.<br>Could be promoted to a <b>Specialist</b>."
+      },
+      "common": {
+        "name": "Common"
+      }
+    },
+    "abilities": {
+      "title": "Abilities",
+      "heavy": {
+        "bulwark": {
+          "name": "Bulwark",
+          "description": "You can spend <b>anchor uses</b> as <b>special armor</b> against consequences to a squad you are defending."
+        },
+        "backup": {
+          "name": "Backup",
+          "description": "When you <b>protect</b> a squadmate, <b>resist</b> with <b>+1d</b>. When you <b>assist</b> someone, their <b>pushes</b> only cost <b>1 stress</b>."
+        },
+        "tenacious": {
+          "name": "Tenacious",
+          "description": "Penalties from <b>harm</b> are one level less severe (though level 4 harm is still fatal)."
+        },
+        "weaponmaster": {
+          "name": "Weaponmaster",
+          "description": "You’re known as a Weaponmaster even outside the Legion. When you <b>push yourself</b>, you also gain potency in melee combat."
+        },
+        "war_machine": {
+          "name": "War Machine",
+          "description": "When you <b>push yourself</b> you can do one of the following: <i>perform a feat of physical force that verges on the superhuman — reduce the <b>threat</b> level of all the enemies you’re facing by one</i>."
+        },
+        "vigorous": {
+          "name": "Vigorous",
+          "description": "When you check wounds during <b>rest and recuperation</b>, place one free check. When you take <b>harm</b>, clear <b>1 stress.</b>"
+        },
+        "against_the_darkness": {
+          "name": "Against the Darkness",
+          "description": "You and all squadmates that can see you gain <b>+1d</b> to <b>resist</b> fear and corruption."
+        }
+      },
+      "medic": {
+        "attache": {
+          "name": "Attaché",
+          "description": "You may deploy on any mission, even outside the usual <b>Specialist</b> caps. Gain this ability for free when you become a <b>Medic</b>."
+        },
+        "first_aid": {
+          "name": "First Aid",
+          "description": "You can spend 1 use of <b>Tonics</b> to remove appropriate <b>level 1 harm</b> from any one person on your mission."
+        },
+        "not_today": {
+          "name": "Not Today",
+          "description": "You can spend a <b>doctor</b> use on a <b>Legionnaire</b> who has taken <b>level 4 harm</b> on a mission, but you must do so quickly before they die. You treat them and reduce the wound to <b>level 3 harm</b> instead."
+        },
+        "doctor_feelgood": {
+          "name": "Doctor Feelgood",
+          "description": "Spend 1 use of <b>Tonics</b> to grant one person <b>potency</b> for a physical action."
+        },
+        "field_dressing": {
+          "name": "Field Dressing",
+          "description": "At the end of a mission you may expend remaining <b>doctor uses</b> to add 1 check to a <b>Legionnaire's</b> <b>level 2 or 3 harm</b>, once per person."
+        },
+        "chemist": {
+          "name": "Chemist",
+          "description": "You have training in <b>Orite alchemical medicine</b>. You may equip an <b>Alchemical Bandolier</b> on each mission."
+        },
+        "moral_support": {
+          "name": "Moral Support",
+          "description": "You know how to keep troop spirits up. Once a mission, if you tell a funny, personal, or meaningful story when the squad is resting, anyone listening may clear <b>1 stress</b>."
+        }
+      },
+      "officer": {
+        "tactician": {
+          "name": "Tactician",
+          "description": "You anticipate problems others would never see coming. When you lead a <b>group action</b> you may suffer at most <b>1 stress</b>."
+        },
+        "lead_from_the_front": {
+          "name": "Lead from the Front",
+          "description": "Whenever you lead a <b>group action</b>, improve <b>scale</b> up or down one level (for example: a <b>small group</b> counts as a <b>medium group</b> or an <b>individual</b>). If you lead a <b>group action</b> in combat, you may count <b>multiple 6s</b> from different rolls as a <b>CRITICAL</b>."
+        },
+        "logistical_support": {
+          "name": "Logistical Support",
+          "description": "<b>channels uses</b> can be spent to assist a <b>squadmate</b>. When you do this, they get an additional <b>+1d</b>. Tell us how your preparation or supplies help them against this threat or obstacle."
+        },
+        "mission_first": {
+          "name": "Mission First",
+          "description": "Add the following to \"at the end of mission\" <b>xp triggers</b>: If <b>anyone died under your command</b>."
+        },
+        "obedience": {
+          "name": "Obedience",
+          "description": "An <b>NPC squadmate</b> sacrifices themselves, on your orders. They die, and absorb all the <b>harm</b> for you or another <b>Specialist</b> from one attack. Remember that the Legion takes <b>-1 morale</b> each time this occurs."
+        },
+        "strategist": {
+          "name": "Strategist",
+          "description": "You gain <b>+1d</b> to sway when acquiring assets for a mission via <b>channels uses</b>. You also get <b>+1d</b> to the <b>engagement roll</b> for a mission."
+        },
+        "officer_school": {
+          "name": "Officer School",
+          "description": "You're well educated and know <b>arcane esoterica</b>. Gain <b>+1d</b> when <b>gathering info</b> through research and when <b>resisting with insight</b>."
+        }
+      },
+      "scout": {
+        "ghost": {
+          "name": "Ghost",
+          "description": "You can spend <b>scrounge uses</b> as <b>special armor</b> against <b>traps</b> or <b>detection</b>."
+        },
+        "panther_like_grace": {
+          "name": "Panther-Like Grace",
+          "description": "When you are <b>quick</b> and carrying <b>no armor</b>, any <b>harm</b> you take starts as <b>1 level lower</b>."
+        },
+        "like_the_wind": {
+          "name": "Like the Wind",
+          "description": "Whenever there's a question of who goes first, the answer is you. Also take <b>+1d</b> when <b>resisting attacks</b> with <b>prowess</b>."
+        },
+        "infiltrator": {
+          "name": "Infiltrator",
+          "description": "When you <b>gather info</b> through <b>clandestine observation</b>, or attempt to bypass <b>traps</b> and <b>security measures</b>, gain <b>potency</b>."
+        },
+        "sixth_sense": {
+          "name": "Sixth Sense",
+          "description": "You just know when there are <b>undead</b> nearby. You always know what the highest <b>threat level</b> of <b>undead</b> is in the area. You can <b>gather info</b> on them with <b>resolve</b>."
+        },
+        "ready_for_anything": {
+          "name": "Ready for Anything",
+          "description": "When being <b>ambushed</b>, your <b>flashbacks</b> cost <b>0 stress</b> and you gain <b>potency</b> to all actions during those <b>flashbacks</b>. You also take <b>1 less level of harm</b> on <b>secondary missions</b>."
+        },
+        "daredevil": {
+          "name": "Daredevil",
+          "description": "When you make a <b>desperate roll</b>, gain <b>+1d</b>."
+        }
+      },
+      "sniper": {
+        "one_eye": {
+          "name": "One Eye",
+          "description": "You've replaced an eye with an <b>alchemical construct</b>. You can see <b>invisible targets</b> clearly and identify <b>supernatural forces</b>."
+        },
+        "ambush": {
+          "name": "Ambush",
+          "description": "When you attack from <b>hiding</b> or spring a <b>trap</b>, you get <b>+1d</b>."
+        },
+        "akimbo": {
+          "name": "Akimbo",
+          "description": "When dueling at close range with <b>two pistols</b>, gain <b>potency</b>."
+        },
+        "notches": {
+          "name": "Notches",
+          "description": "If you land the <b>killing blow</b> on a <b>threat 2 or higher opponent</b>, mark <b>1 xp</b> in any category."
+        },
+        "sharpshooter": {
+          "name": "Sharpshooter",
+          "description": "You can <b>push yourself</b> to do one of the following: make a ranged attack at extreme distance beyond what's normal for the weapon — <b>unleash a barrage of rapid fire</b> to suppress the enemy."
+        },
+        "cover_fire": {
+          "name": "Cover Fire",
+          "description": "If you set up someone with <b>shoot</b> or provide <b>covering fire</b>, they gain <b>potency</b> on their next action."
+        },
+        "crimson_shot": {
+          "name": "Crimson Shot",
+          "description": "You're authorized to bring one <b>Crimson Seeker shell</b> on missions. Firing it counts as a <b>threat 4</b> attack, and you must mark a <b>trauma</b>."
+        }
+      },
+      "rookie": {
+        "devil's_own_luck": {
+          "name": "Devil’s Own Luck",
+          "description": "You gain <b>+1d</b> to all <b>resistance rolls</b>. This ability cannot be taken as a <b>Veteran advance</b>."
+        },
+        "every_inch_a": {
+          "name": "Every Inch a...",
+          "description": "You start with all the traits from your <b>heritage</b>. If taken as a <b>Veteran advance</b>, it must be the first ability selected at <b>character creation</b>."
+        },
+        "hard_knocks": {
+          "name": "Hard Knocks",
+          "description": "Mark <b>2 xp</b> in any category at the end of any mission where you took <b>level 2 harm or higher</b>. This ability cannot be taken as a <b>Veteran advance</b>."
+        },
+        "just_a_kid": {
+          "name": "Just a Kid",
+          "description": "When someone suffers <b>harm</b> when protecting you, they mark <b>xp</b>. When you <b>promote</b>, choose a second <b>special ability</b> from your new playbook to replace this one. This ability cannot be taken as a <b>Veteran advance</b>."
+        },
+        "gotta_make_it_out_alive": {
+          "name": "Gotta Make it out Alive",
+          "description": "You can take <b>1 additional trauma</b> before dying. When you <b>promote</b>, replace this ability with a level of <b>Survivor</b>. This ability cannot be taken as a <b>Veteran advance</b>."
+        },
+        "home_cooking": {
+          "name": "Home Cooking",
+          "description": "If a mission takes multiple days, use your <b>Fresh Food</b>. Say what you cook. Everyone in the squad that partakes clears <b>1 stress</b>. This ability cannot be taken as a <b>Veteran advance</b>."
+        },
+        "jack_of_all_trades": {
+          "name": "Jack of all Trades",
+          "description": "Increase <b>2 zero-ranked skills</b> to <b>rank 1</b>. This ability cannot be taken as a <b>Veteran advance</b>."
+        },
+        "not_a_rookie_anymore": {
+          "name": "Not a Rookie Anymore",
+          "description": "You are <b>promoted!</b> You become a <b>Soldier</b>. Gain <b>1 special ability</b> and <b>1 rank of Grit</b>. You must take this as your first <b>playbook advance</b>. This ability cannot be taken as a <b>Veteran advance</b> or a <b>starting ability</b>."
+        }
+      },
+      "soldier": {
+        "relentless": {
+          "name": "Relentless",
+          "description": "You may spend <b>grit uses</b> to <b>push yourself</b>."
+        },
+        "over_the_top": {
+          "name": "Over the Top",
+          "description": "When you charge into the teeth of an enemy that outnumbers or outguns you, clear <b>1 stress</b> and take <b>+1d</b> to <b>maneuver</b>."
+        },
+        "iron_will": {
+          "name": "Iron Will",
+          "description": "You can spend <b>grit uses</b> as <b>special armor</b> vs. <b>fear</b>, <b>paralysis</b>, <b>corruption</b>, and <b>fatigue</b>."
+        },
+        "loaded_for_bear": {
+          "name": "Loaded for Bear",
+          "description": "When selecting load, you may select <b>4 utility load</b> instead of <b>2</b>."
+        },
+        "eat_iron_shit_nails": {
+          "name": "Eat Iron, Shit Nails",
+          "description": "When you <b>push yourself</b>, you may ignore all <b>harm penalties</b>. Also take <b>+1d</b> to <b>resist</b> the consequence of any roll you <b>pushed yourself</b> on."
+        },
+        "grenadier": {
+          "name": "Grenadier",
+          "description": "You have <b>explosives training</b> and can always bring a <b>grenade (1 load)</b> or <b>explosive charges (2 load)</b> as part of your <b>light load</b>."
+        },
+        "cavalry": {
+          "name": "Cavalry",
+          "description": "If the <b>Quartermaster</b> has <b>Horses uses</b> available, all members of your squad start missions with mounts. You gain <b>+1d</b> to <b>maneuver</b> while mounted."
+        },
+        "specialist_training": {
+          "name": "Specialist Training",
+          "description": "You promote to a <b>Specialist</b>. Make a new playbook: mark <b>1 special ability</b> and a rank of the consequence of starting <b>Specialist action</b>."
+        }
+      },
+      "common": {
+        "elite": {
+          "name": "Elite",
+          "description": "Gain <b>mastery</b> of 2 actions (they can go up to rank 4)."
+        },
+        "hardened": {
+          "name": "Hardened",
+          "description": "You can mark <b>2 additional stress boxes</b>."
+        },
+        "survivor": {
+          "name": "Survivor",
+          "description": "You can take <b>+1 trauma</b> before dying."
+        },
+        "veteran": {
+          "name": "Veteran",
+          "description": "Take a <b>special ability</b> from another source."
+        }
+      }
+    },
+    "or": "or",
+    "name:": "Name:",
+    "origin_squads": {
+      "select": "Squad",
+      "ghost_owls": {
+        "name": "Ghost Owls",
+        "description": "When the Legion needs problems dealt with quickly and quietly, they send the Owls. They’re traditionally stocked with Legionnaires experienced as special operatives, trained in infiltrations and extractions. A little known fact is that their squad motto is an imperative, to always remain calm regardless of the situation. Many Legion Snipers and Scouts were once Owls."
+      },
+      "ember_wolves": {
+        "name": "Ember Wolves",
+        "description": "The vanguard of the Legion, the Ember Wolves are the first unit sent into battle as shock troops. They charge head-on into danger, throwing the enemy into disarray and giving the rest of the Legion the chance to advance. Founded long ago by a seasoned Zemyati woman nicknamed the “Bloody Wolf,” they are known for volunteering to go where battle is the toughest."
+      },
+      "grinning_ravens": {
+        "name": "Grinning Ravens",
+        "description": "The backbone of the Legion and traditionally the most numerous squad, the Ravens are a second wave formation. They follow in the wake of the Ember Wolves, overtaking positions and holding against all odds. Their original founder was known for her famous spear, and the habit of laughing mid-battle when the odds were at their worst. "
+      },
+      "shattered_lions": {
+        "name": "Shattered Lions",
+        "description": "An elite unit of the Legion. They were the first unit ever formed, and once served as the personal guard to Emperor Tantarus as the Crimson Lions. When the Legion was shattered down to a handful, they rescued the Annals and reformed as the Shattered Lions. Bearers of the Legion’s standard, many Commanders and Marshals are veterans of this unit."
+      },
+      "silver_stags": {
+        "name": "Silver Stags",
+        "description": "Formed less than a hundred years ago, the Silver Stags have become the Legion’s rear guard. The squad was comissioned after a handful of Legionnaires held a town against a vastly superior force, surviving on rats and shoe-leather. Their leader afterwards requested his own command. They are often sent on missions where the line absolutely cannot fall, or hard choices must be made."
+      },
+      "star_vipers": {
+        "name": "Star Vipers",
+        "description": "The Legion has tangled with Great Beasts, fought alongside multiple Chosen, and faced incredible odds throughout the years. The Vipers are the ones who test and use strange alchemy and new weapons, and are trained to handle, research, and face the supernatural. They’ve sacrificed much over the years, and attract some eclectic individuals."
+      }
+    },
+    "safety": {
+      "armor": "Armor",
+      "heavy": "Heavy",
+      "shield": "Shield",
+      "special": "Special"
+    },
+    "select": {
+      "items": "Select utilities",
+      "specialization": "Select specialization",
+      "abilities": "Select special abilities",
+      "traits": "Select heritage traits",
+      "squad": "Select squad"
+    },
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "dialog": {
+      "roll": {
+        "title": "Roll",
+        "basic": {
+          "title": "Basic dices:"
+        },
+        "bonus": {
+          "title": "Bonus dices:"
+        },
+        "modifier": {
+          "title": "Modifier:"
+        },
+        "total": {
+          "title": "Total dices:"
+        }
+      },
+      "help": {
+        "title": "Help:"
+      },
+      "bonus": {
+        "title": "Bonus:"
+      },
+      "heritage": {
+        "title": "Heritage:"
+      }
+    },
+    "position": {
+      "title": "Position:",
+      "controlled": "Controlled",
+      "risky": "Risky",
+      "desperate": "Desperate"
+    },
+    "effect": {
+      "title": "Effect:",
+      "zero": "Zero",
+      "limited": "Limited",
+      "standard": "Standard",
+      "great": "Great",
+      "extreme": "Extreme"
+    },
+    "state": {
+      "standard": "Success",
+      "limited": "Partial success",
+      "zero": "Failure",
+      "critical": "Critical success"
+    },
+    "roll_result": {
+      "xp": "Mark <b>XP</b> for the related attribute.",
+      "check": {
+        "critical": "You do it with <b>increased effect</b>.",
+        "standard": "You do it.",
+        "limited": {
+          "controlled": "You hesitate. Withdraw and try a different approach, or else do it with a minor consequence: a <b>minor complication</b> occurs, you have <b>reduced effect</b>, you suffer <b>lesser harm</b>, you end up in a <b>risky</b> position.",
+          "risky": "You do it, but there’s a consequence: you suffer <b>harm</b>, a <b>complication</b> occurs, you have <b>reduced effect</b>, you end up in a <b>desperate</b> position.",
+          "desperate": "You do it, but there’s a consequence: you suffer <b>severe harm</b>, a <b>serious complication</b> occurs, you have <b>reduced effect</b>."
+        },
+        "zero": {
+          "controlled": "You falter. Press on by seizing a <b>risky</b> opportunity, or withdraw and try a different approach.",
+          "risky": "Things go badly. You suffer <b>harm</b>, a <b>complication</b> occurs, you end up in a <b>desperate</b> position, you <b>lose this opportunity</b>.",
+          "desperate": "It’s the worst outcome. You suffer <b>severe harm</b>, a <b>serious complication occurs</b>, you <b>lose this opportunity for action</b>."
+        }
+      },
+      "resist": {
+        "common": "Resistance",
+        "critical": "Critical resistance",
+        "description": "You <b>reduce</b> or completely <b>avoid</b> the effects of the consequences (GM choice).",
+        "results": {
+          "common": "Take <b>Stress</b> equal to 6 minus the highest (or lowest in case of a 0d roll) die result, which should be",
+          "critical": "Clear <b>1 Stress.</b>"
+        }
+      }
+    }
+  }
+}

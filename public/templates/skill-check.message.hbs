@@ -1,0 +1,41 @@
+<div class="band-of-blades-sheets band-of-blades-sheets__chat-item">
+  <div class="band-of-blades-sheets__chat-item--title">
+    {{localize (concat "band-of-blades-sheets." attribute.label)}}
+  </div>
+
+  <div class="band-of-blades-sheets__chat-item--positions">
+    <div class="band-of-blades-sheets__chat-item--position">
+      {{localize (concat "band-of-blades-sheets.position." result.position)}}
+    </div>
+    <div class="band-of-blades-sheets__chat-item--position">
+      {{localize (concat "band-of-blades-sheets.effect." result.effect)}}
+    </div>
+  </div>
+
+  <div class="band-of-blades-sheets__chat-item--result">
+    {{localize "band-of-blades-sheets.result"}}
+    <span class="band-of-blades-sheets__chat-item--state band-of-blades-sheets__chat-item--state-{{result.state}}">
+      {{localize (concat "band-of-blades-sheets.state." result.state)}}
+    </span>
+  </div>
+
+  <div class="band-of-blades-sheets__chat-item--description">
+    {{#if (or (eq result.state "critical") (eq result.state "standard"))}}
+      {{{localize (concat "band-of-blades-sheets.roll_result.check." result.state)}}}
+    {{else}}
+      {{{localize (concat "band-of-blades-sheets.roll_result.check." result.state "." result.position)}}}
+    {{/if}}
+
+    {{#if (eq result.position "desperate")}}
+      <p>{{{localize "band-of-blades-sheets.roll_result.xp"}}}</p>
+    {{/if}}
+  </div>
+
+  <div class="band-of-blades-sheets__chat-item--rolls">
+    {{#each result.dices}}
+      <div class="band-of-blades-sheets__chat-item--roll band-of-blades-sheets__chat-item--roll_d-{{this}}">
+        {{this}}
+      </div>
+    {{/each}}
+  </div>
+</div>

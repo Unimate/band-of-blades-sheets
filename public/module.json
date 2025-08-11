@@ -1,0 +1,30 @@
+{
+  "id": "band-of-blades-sheets",
+  "title": "Band of Blades Sheets",
+  "description": "Game sheets for Band of Blades inspired by official character sheets",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Unimate",
+      "email": "unimategp@gmail.com"
+    }
+  ],
+  "compatibility": {
+    "verified": "13",
+    "maximum": "13"
+  },
+  "esmodules": ["./band-of-blades-sheets.js"],
+  "styles": ["./band-of-blades-sheets.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "ru",
+      "name": "Русский",
+      "path": "lang/ru.json"
+    }
+  ]
+}
