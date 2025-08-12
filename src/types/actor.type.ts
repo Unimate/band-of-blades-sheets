@@ -13,7 +13,7 @@ export enum LegionnaireEnum {
   Rookie = 'rookie',
 }
 
-export enum HeritageEnum {
+export enum Heritage {
   Bartans = 'bartan',
   Orites = 'orite',
   Panyar = 'panyar',
@@ -114,7 +114,6 @@ export enum BartanTraitEnum {
 
 export type Trait = ZemyatiTraitEnum | PanyarTraitEnum | OriteTraitEnum | BartanTraitEnum;
 
-export type Heritage = HeritageEnum;
 
 export type Specialization = SpecialistEnum | LegionnaireEnum;
 

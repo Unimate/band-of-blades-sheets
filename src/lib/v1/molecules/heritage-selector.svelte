@@ -2,8 +2,7 @@
   import { foundryAdapter } from "src/foundry/foundry.adapter";
   import {
     BartanTraitEnum,
-    type Heritage,
-    HeritageEnum,
+    Heritage,
     OriteTraitEnum,
     PanyarTraitEnum,
     type Trait,
@@ -13,15 +12,15 @@
   let { heritage, traits, limit = 2, isOpen = $bindable(false), onconfirm, oncancel } = $props();
 
 
-  let selectedHeritage: Heritage = $state(null);
+  let selectedHeritage: Heritage | null = $state(null);
   let selectedTraits: Trait[] = $state([]);
 
 
   const heritages = [
-    { name: HeritageEnum.Bartans, traits: Object.values(BartanTraitEnum) },
-    { name: HeritageEnum.Orites, traits: Object.values(OriteTraitEnum) },
-    { name: HeritageEnum.Panyar, traits: Object.values(PanyarTraitEnum) },
-    { name: HeritageEnum.Zemyati, traits: Object.values(ZemyatiTraitEnum) },
+    { name: Heritage.Bartans, traits: Object.values(BartanTraitEnum) },
+    { name: Heritage.Orites, traits: Object.values(OriteTraitEnum) },
+    { name: Heritage.Panyar, traits: Object.values(PanyarTraitEnum) },
+    { name: Heritage.Zemyati, traits: Object.values(ZemyatiTraitEnum) },
   ];
 
   $effect(() => {
@@ -31,7 +30,7 @@
     }
   });
 
-  const selectHeritageAndTrait = (heritage: HeritageEnum, trait: Trait) => {
+  const selectHeritageAndTrait = (heritage: Heritage, trait: Trait) => {
     if (selectedTraits.includes(trait)) {
       selectedTraits = selectedTraits.filter((t: Trait) => t !== trait);
     } else {
@@ -77,7 +76,6 @@
                 <input
                     type="checkbox"
                     hidden
-                    disabled={selectedHeritage !== null && heritage.name !== selectedHeritage}
                     checked={selectedTraits.includes(trait)}
                     id={'item-' + trait + '-' + index}
                     onclick={() => selectHeritageAndTrait(heritage.name, trait)}

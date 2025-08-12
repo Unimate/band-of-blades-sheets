@@ -159,5 +159,5 @@ export const REMAPPED_ABILITIES = new Map<string, string[]>([
   ['grenadier', ['(So) Grenadier']],
   ['cavalry', ['(So) Cavalry']],
 
-  ['elite', ['(G) Elite Consort', '(G) Elite Shoot',]] // '(G) Elite Channels', '(G) Elite Rig', '(G) Elite Grit', '(G) Elite Wreck', '(G) Elite Aim', '(G) Elite Marshal', '(G) Elite Sway', '(G) Elite Scrounge', '(G) Elite Doctor', '(G) Elite Scout', '(G) Elite Weave', '(G) Elite Skirmish', '(G) Elite Anchor', '(G) Elite Maneuver', '(G) Elite Discipline']],
+  ['elite', ['(G) Elite Consort', '(G) Elite Shoot']] // '(G) Elite Channels', '(G) Elite Rig', '(G) Elite Grit', '(G) Elite Wreck', '(G) Elite Aim', '(G) Elite Marshal', '(G) Elite Sway', '(G) Elite Scrounge', '(G) Elite Doctor', '(G) Elite Scout', '(G) Elite Weave', '(G) Elite Skirmish', '(G) Elite Anchor', '(G) Elite Maneuver', '(G) Elite Discipline']],
 ]);

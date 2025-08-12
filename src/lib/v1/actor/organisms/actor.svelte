@@ -91,10 +91,14 @@
     }
   };
 
+  const handleDrop = (...args: any[]) => {
+    args[0].preventDefault();
+  }
+
 </script>
 
 
-<div class="main">
+<div class="main" ondrop={handleDrop} role="main">
   <div class="container">
     <div class="information">
       <Information

@@ -8,19 +8,20 @@ import {
   DEFAULT_SAFETY,
 } from "../constants";
 import {
+  BartanTraitEnum,
   Condition,
-  type Heritage,
+  Heritage,
   type IActor,
   type IExtra,
   type ISkill,
   type ISkills,
-  LegionnaireEnum,
+  LegionnaireEnum, OriteTraitEnum, PanyarTraitEnum,
   SkillCategoryLabel,
   SkillLabel,
   SpecialistEnum,
   type Specialization,
   type Trait,
-  type Trauma
+  type Trauma, ZemyatiTraitEnum,
 } from "../types/actor.type";
 import { extra as EXTRA, type IItemShortcut, LOADOUT, UTILITIES, VOCABULARY } from "../dictionaries/loadout";
 import type { ILoadItem } from "../types/loadout.type";
@@ -518,4 +519,31 @@ export const calculateBonuses = (actor: IActor, skill: ISkill | ISkills) => {
   });
 
   return { personal: personalBonuses, group: groupBonuses, heritage: heritageBonuses };
+}
+
+export const selectActorItemsByType = (data: any, type: string) => {
+  return data.items.values().filter((item: any) => item.type === type);
+}
+
+export const handleTraitDrop = (item: any, actor: any) => {
+  const traits = selectActorItemsByType(actor, 'trait');
+  let heritage = selectActorItemsByType(actor, 'heritage')[0];
+
+  if (heritage === undefined) {
+    const name = item.name.toLowerCase();
+    if (Object.values(ZemyatiTraitEnum).includes(name)) {
+      heritage = { name: Heritage.Zemyati }
+    }
+    if (Object.values(PanyarTraitEnum).includes(name)) {
+      heritage = { name: Heritage.Panyar }
+    }
+    if (Object.values(OriteTraitEnum).includes(name)) {
+      heritage = { name: Heritage.Orites }
+    }
+    if (Object.values(BartanTraitEnum).includes(name)) {
+      heritage = { name: Heritage.Bartans }
+    }
+  }
+
+  return [heritage, ...traits, item].map((i) => i.name.toLowerCase());
 }
