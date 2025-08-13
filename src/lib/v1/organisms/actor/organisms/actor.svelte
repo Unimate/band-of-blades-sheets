@@ -5,16 +5,16 @@
   import HarmAndSafety from '../molecules/harm-and-safety.svelte';
   import Load from '../molecules/load.svelte';
   import Abilities from '../molecules/abilities.svelte';
-  import ItemsSelector from '../../molecules/items-selector.svelte';
-  import SpecializationSelector from '../../molecules/specialization-selector.svelte';
+  import ItemsSelector from '../../../molecules/items-selector.svelte';
+  import SpecializationSelector from '../../../molecules/specialization-selector.svelte';
 
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
   import type { IActions } from "src/types/actions.type";
   import type { Heritage, IActor, Specialization, Trait } from "src/types/actor.type";
   import type { ILoadItem } from "src/types/loadout.type";
-  import HeritageSelector from '../../molecules/heritage-selector.svelte';
-  import AbilitiesSelector from '../../molecules/abilities-selector.svelte';
-  import SquadSelector from '../../molecules/squad-selector.svelte';
+  import HeritageSelector from '../../../molecules/heritage-selector.svelte';
+  import AbilitiesSelector from '../../../molecules/abilities-selector.svelte';
+  import SquadSelector from '../../../molecules/squad-selector.svelte';
 
   let context = $derived(getActorSheetContext() as IActor & IActions);
 

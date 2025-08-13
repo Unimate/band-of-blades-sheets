@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
   import type { IActor } from "src/types/actor.type";
   import type { IActions } from "src/types/actions.type";
 
-  const { onClick, label, total, limit = total, current, version = 'primary', className = '' } = $props();
-  let context = $derived(getActorSheetContext() as IActor & IActions);
+  const { id, onClick, label, total, limit = total, current, version = 'primary', className = '' } = $props();
 
   const handleValue = (ephemeral: number) => {
     if (typeof onClick !== 'function') return;
@@ -24,13 +23,13 @@
       onclick={() => handleValue(Number(ephemeral))}
       type="checkbox"
       hidden
-      id={context._id + '-' + label + '-' + steps}
+      id={id + '-' + label + '-' + steps}
       name={label + '-input'}
       value="{ephemeral}"
       checked={current === ephemeral}
       disabled={ephemeral > limit}
     />
-    <label class="point" for={context._id + '-' + label + '-' + steps} class:readonly={typeof onClick !== 'function'}></label>
+    <label class="point" for={id + '-' + label + '-' + steps} class:readonly={typeof onClick !== 'function'}></label>
   {/each}
 </div>
 
@@ -45,7 +44,8 @@
 
       input[type="checkbox"]:disabled + .point {
         cursor: default;
-        border-color: var(--band-of-blades-sheets-border-primary-color);
+        background-color: var(--band-of-blades-sheets-background-tertiary-color);
+        border-color: var(--band-of-blades-sheets-border-secondary-color);
       }
 
       input[type="checkbox"]:read-only + .point {
@@ -63,8 +63,8 @@
         display: flex;
         width: 10px;
         height: 10px;
-        background-color: var(--band-of-blades-sheets-background-tertiary-color);
-        border: 2px solid var(--band-of-blades-sheets-border-secondary-color);
+        background-color: var(--band-of-blades-sheets-background-primary-color);
+        border: 2px solid var(--band-of-blades-sheets-border-primary-color);
         transform: rotate(45deg);
 
         &.readonly {

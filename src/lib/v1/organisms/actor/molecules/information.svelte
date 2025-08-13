@@ -1,7 +1,7 @@
 <script lang="ts">
   import { type IActor, LegionnaireEnum } from "src/types/actor.type";
   import { foundryAdapter } from "src/foundry/foundry.adapter";
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
   import type { IActions } from "src/types/actions.type";
 
   let context = $derived(getActorSheetContext() as IActor & IActions);

@@ -28,6 +28,7 @@ import type { ILoadItem } from "../types/loadout.type";
 import { ABILITIES, REMAPPED_ABILITIES } from "../dictionaries/abilities";
 import type { IBonus, ICalculation } from "../types/dices.type";
 import { GROUP, HERITAGE, PERSONAL } from "../dictionaries/bonuses";
+import { foundryAdapter } from "../foundry/foundry.adapter";
 
 export const mapCharacter = async (data: any): Promise<IActor> => {
   const { system } = data;
@@ -359,11 +360,6 @@ export const searchItemByType = (types: string[], data: any) => {
   return [...items].filter((item: any) => types.includes(item.type));
 }
 
-export const requestItemsFromCompendium = async (key: string) => {
-  const pack = game.packs.get(key);
-  return pack.getDocuments();
-}
-
 export const assembleAbilities = (abilities: string[]): string[] => {
   const toAdd: string[] = [];
   abilities.forEach((ability: string) => {
@@ -382,7 +378,7 @@ export const assembleAbilities = (abilities: string[]): string[] => {
 }
 
 export const requestSquads = async () => {
-  const squads = await requestItemsFromCompendium(CONSTANTS.PACKS.SQUAD);
+  const squads = await foundryAdapter.requestItemsFromCompendium(CONSTANTS.PACKS.SQUAD);
 
   return squads.map((squad: any) => {
     const name = SQUADS.get(squad.name) || squad.name;

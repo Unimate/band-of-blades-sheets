@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Indicators from "../atoms/indicators.svelte";
+  import Indicators from "../../../atoms/indicators.svelte";
   import { foundryAdapter } from "src/foundry/foundry.adapter";
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
   import type { IActor, ISafety } from "src/types/actor.type";
   import type { IActions } from "src/types/actions.type";
 
@@ -46,6 +46,7 @@
         <div class="harm-level">3</div>
         <div class="harm-descriptions">
           <Indicators
+              id={context._id}
               className="harm-indicator"
               onClick={value => changeHealingSteps('heavy', value)}
               label="injuries-3"
@@ -68,6 +69,7 @@
         <div class="harm-level">2</div>
         <div class="harm-descriptions">
           <Indicators
+            id={context._id}
             className="harm-indicator"
             onClick={value => changeHealingSteps('medium', value)}
             label="injuries-2"
@@ -90,6 +92,7 @@
         <div class="harm-level">1</div>
         <div class="harm-descriptions">
           <Indicators
+            id={context._id}
             className="harm-indicator"
             onClick={value => changeHealingSteps('light', value)}
             label="injuries-1"

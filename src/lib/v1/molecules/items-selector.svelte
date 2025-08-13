@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Item from '../actor/atoms/item.svelte';
+  import Item from '../organisms/actor/atoms/item.svelte';
   import { foundryAdapter } from "src/foundry/foundry.adapter";
   import { type ILoadItem } from "src/types/loadout.type";
 

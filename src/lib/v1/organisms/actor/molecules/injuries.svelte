@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Indicators from '../atoms/indicators.svelte';
+  import Indicators from '../../../atoms/indicators.svelte';
   import { foundryAdapter } from 'src/foundry/foundry.adapter';
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
   import { Condition, type IActor, Trauma } from "src/types/actor.type";
   import type { IActions } from "src/types/actions.type";
 
@@ -24,6 +24,7 @@
     <div class="stress-container">
       <span class="stress-header">{foundryAdapter.localize('stress')}</span>
       <Indicators
+        id={context._id}
         onClick={value => handleInjuriesItem('stress', value)}
         label="stress"
         limit={context.injuries.injuries.stress.max}
@@ -34,6 +35,7 @@
 
     <div class="trauma-container">
       <Indicators
+        id={context._id}
         label="trauma"
         limit={context.injuries.conditions.trauma.max}
         total={4}
@@ -67,6 +69,7 @@
     <div class="stress-container">
       <span class="stress-header">{foundryAdapter.localize('corruption')}</span>
       <Indicators
+        id={context._id}
         onClick={value => handleInjuriesItem('corruption', value)}
         label="corruption"
         total={context.injuries.injuries.corruption.max}
@@ -76,6 +79,7 @@
 
     <div class="trauma-container">
       <Indicators
+          id={context._id}
           label="blight"
           total={context.injuries.conditions.blight.max}
           version="secondary"

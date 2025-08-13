@@ -1,12 +1,11 @@
 import { mount, unmount } from "svelte";
-import ActorSheet from '../lib/v1/actor/root.svelte';
+import ActorSheet from '../lib/v1/organisms/actor/root.svelte';
 import { CoarseReactivityProvider } from "../utils/reactivity/reactivity.svelte";
 import { CONSTANTS } from "../constants";
 import {
   assembleAbilities,
   disassembleItems,
   itemsToDelete,
-  requestItemsFromCompendium,
   requestSquads,
   mapCharacter,
   searchItemByType,
@@ -45,7 +44,7 @@ export class BandOfBladesSheetsActor extends foundry.applications.sheets.ActorSh
   #actions = {
     selectAbilities: async (abilities: string[]): Promise<void> => {
       const names: string[] = assembleAbilities(abilities);
-      const list = await requestItemsFromCompendium(CONSTANTS.PACKS.ABILITY);
+      const list = await foundryAdapter.requestItemsFromCompendium(CONSTANTS.PACKS.ABILITY);
       const toCreate = list.filter((item: any) => names.includes(item.name));
       const toDelete = searchItemByType(['ability'], this.actor).map((item: any) => item._id);
       await this.#refreshItems(toCreate, toDelete);
@@ -53,15 +52,15 @@ export class BandOfBladesSheetsActor extends foundry.applications.sheets.ActorSh
     selectSpecialization: async (specialization: Specialization) => {
       if (specialization === null) return;
 
-      const list = await requestItemsFromCompendium(CONSTANTS.PACKS.SPECIALIZATION);
+      const list = await foundryAdapter.requestItemsFromCompendium(CONSTANTS.PACKS.SPECIALIZATION);
       const toCreate = list.filter((item: any) => item.name.toLowerCase() === specialization);
       const toDelete = searchItemByType(['class'], this.actor).map((item: any) => item._id);
       await this.#refreshItems(toCreate, toDelete);
     },
     selectHeritage: async (heritage: Heritage, traits: Trait[]) => {
       if (heritage === null || traits.length === 0) return;
-      const heritages = await requestItemsFromCompendium(CONSTANTS.PACKS.HERITAGE);
-      const list = await requestItemsFromCompendium(CONSTANTS.PACKS.TRAIT);
+      const heritages = await foundryAdapter.requestItemsFromCompendium(CONSTANTS.PACKS.HERITAGE);
+      const list = await foundryAdapter.requestItemsFromCompendium(CONSTANTS.PACKS.TRAIT);
 
       const newHeritage = heritages.filter((item: any) => item.name.toLowerCase() === heritage);
       const newTraits = list.filter((item: any) => traits.includes(item.name.toLowerCase()));
@@ -79,7 +78,7 @@ export class BandOfBladesSheetsActor extends foundry.applications.sheets.ActorSh
     },
     selectSquad: async (squad: string): Promise<void> => {
       const name = REMAPPED_SQUADS.get(squad) || squad;
-      const list = await requestItemsFromCompendium(CONSTANTS.PACKS.SQUAD);
+      const list = await foundryAdapter.requestItemsFromCompendium(CONSTANTS.PACKS.SQUAD);
       const toCreate = list.filter((item: any) => name === item.name);
       const toDelete = searchItemByType(['squad'], this.actor).map((item: any) => item._id);
 

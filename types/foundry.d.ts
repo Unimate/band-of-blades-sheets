@@ -42,6 +42,7 @@ declare global {
   var Roll: any;
   var TokenDocument: any;
   var ui: any;
+  var CONFIG: any;
 
   interface ArrayConstructor {
     fromRange: (n: number, min?: number) => number[];

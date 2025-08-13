@@ -1,8 +1,8 @@
 <script lang="ts">
   import Actor from "./organisms/actor.svelte";
   import Notes from "./organisms/notes.svelte";
-  import Navigation from "../molecules/navigation.svelte";
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context";
+  import Navigation from "../../molecules/navigation.svelte";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
 
   let currentView: 'character' | 'notes' = $state('character');
   let context = $derived(getActorSheetContext());
@@ -18,7 +18,7 @@
   <Navigation changed={(value) => currentView = value}/>
 
   {#if currentView === 'character'}
-    <Actor />
+    <Actor/>
   {/if}
   {#if currentView === 'notes'}
     {#await enrichedPromise then enriched}
@@ -34,8 +34,9 @@
     {/await}
   {/if}
 </main>
+
 <style lang="scss">
-  @use '../../../app.scss';
+  @use '../../../../app';
 
   main {
     overflow: hidden;

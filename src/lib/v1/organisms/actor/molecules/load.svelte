@@ -1,7 +1,7 @@
 <script lang="ts">
   import Item from "../atoms/item.svelte";
   import { foundryAdapter } from "src/foundry/foundry.adapter";
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
   import type { IActor } from "src/types/actor.type";
   import type { IActions } from "src/types/actions.type";
   import type { ILoadItem } from "src/types/loadout.type";

@@ -2,7 +2,7 @@
   import Clock from '../atoms/clock.svelte';
   import Skill from '../atoms/skill.svelte'
   import { foundryAdapter } from 'src/foundry/foundry.adapter';
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
   import type { IActor, ISkill, ISkills } from "src/types/actor.type";
   import type { IActions } from "src/types/actions.type";
 

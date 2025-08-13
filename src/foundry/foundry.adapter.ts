@@ -10,5 +10,10 @@ export const foundryAdapter = {
 
   hasLocale(value: string): boolean {
     return game.i18n.has(`${prefix}.${value}`);
+  },
+  async requestItemsFromCompendium(key: string): Promise<any[]> {
+    const pack = game.packs.get(key);
+    return pack.getDocuments();
   }
+
 }

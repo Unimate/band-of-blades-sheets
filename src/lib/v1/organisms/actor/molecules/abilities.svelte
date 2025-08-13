@@ -2,7 +2,7 @@
   import Clock from "../atoms/clock.svelte";
 
   import { foundryAdapter } from "src/foundry/foundry.adapter";
-  import { getActorSheetContext } from "src/lib/v1/actor/actor.context.js";
+  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context.js";
   import { type IActor, type Specialization } from "src/types/actor.type";
   import { type IActions } from "src/types/actions.type";
 
@@ -23,7 +23,7 @@
     {#each context.abilities.list as ability}
       <li class="ability">
         <span>{foundryAdapter.localize(`abilities.${ability.specialization}.${ability.name}.name`)}</span>
-        <button class="control-button" onclick={() => linkEntity(ability.specialization, ability.name)}>
+        <button class="control-button" onclick={() => linkEntity(ability.specialization, ability.name)} aria-label="link-to-chat">
           <i class="fas fa-comment"></i>
         </button>
 
