@@ -66,7 +66,7 @@
         </div>
         <div class="squad-control-panel">
           {#if context.legionnaires[squad.name] === undefined ||  context.legionnaires[squad.name].length < 5}
-            <button class="button" onclick={() => staffTheSquad(squad.name)}>Staff the squad</button>
+            <button class="button" onclick={() => staffTheSquad(squad.name)}>Staff</button>
           {/if}
         </div>
       </div>

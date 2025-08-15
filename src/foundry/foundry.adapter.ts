@@ -1,11 +1,14 @@
 const prefix = 'band-of-blades-sheets';
 export const foundryAdapter = {
   localize(value: string, options?: Record<string, unknown>) {
-    if (options) {
-      return game.i18n.format(`${prefix}.${value}`, options);
-    }
+    if (foundryAdapter.hasLocale(value)) {
+      if (options) {
+        return game.i18n.format(`${prefix}.${value}`, options);
+      }
 
-    return game.i18n.localize(`${prefix}.${value}`);
+      return game.i18n.localize(`${prefix}.${value}`);
+    }
+    return value;
   },
 
   hasLocale(value: string): boolean {

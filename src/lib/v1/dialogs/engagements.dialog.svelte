@@ -1,38 +1,66 @@
 <script lang="ts">
   import { foundryAdapter } from "src/foundry/foundry.adapter";
   import { getDialogContext } from "src/lib/v1/dialogs/dialog.context";
-  import { type IActions, type IBonus, type IBonuses, type IDices } from "src/types/dices.type";
-  import { type ISkill, type ISkills, SkillCategoryLabel } from "src/types/actor.type";
+  import { type IActions, type IBonus, type IBonusAttributes, type IBonuses, type IDices } from "src/types/dices.type";
+  import { CHOSEN } from "src/dictionaries/bonuses";
 
   let context = $derived(getDialogContext() as {
     dices: IDices,
     actions: IActions,
-    attribute: ISkills | ISkill,
     bonuses: IBonuses
   });
 
-  const positions = ['controlled', 'risky', 'desperate'];
-  const effects = ['limited', 'standard', 'great'];
+  const missions = ['assault', 'recon', 'religious', 'supply'];
+
+  let isLegionLoyal = $state(false);
+  let isCommanderSpendIntel = $state(false);
+  let isNoRookies = $state(false);
+  let isAnyRebels = $state(false);
+  let isPositive = $state(false);
+  let isNegative = $state(false);
+
 
   let selected: string[] = $state([]);
 
   let modifier = $state(0);
-  let position = $state('risky');
-  let effectivity = $state('standard');
-
-  const isNotSavingThrow = $derived.by(
-    () => !Object.values(SkillCategoryLabel).includes(context.attribute.label as SkillCategoryLabel)
-  );
+  let mission = $state('assault');
 
   let total = $derived.by(() => {
-    return context.dices.basic + context.dices.bonus + modifier + selected.length;
+    let count = 0;
+
+    if (isLegionLoyal) {
+      count++;
+    }
+
+    if (isCommanderSpendIntel) {
+      count++;
+    }
+
+    if (isNoRookies) {
+      count++;
+    }
+
+    if (isAnyRebels) {
+      count--;
+    }
+
+    if (isPositive) {
+      count++;
+    }
+
+    if (isNegative) {
+      count--;
+    }
+
+    selected.forEach((el: string) => {
+      if (CHOSEN[el] !== undefined) {
+        count = count + Number((CHOSEN[el] as IBonusAttributes).bonus);
+      }
+    })
+
+    return count + modifier;
   });
 
-  const onShow = (entity: IBonus) => {
-    setTimeout(() => {
-      selected.push(entity.ability);
-    }, 0);
-  };
   const onHide = (entity: IBonus) => {
     setTimeout(() => {
       selected = selected.filter((value: string) => value !== entity.ability);
@@ -40,137 +68,157 @@
   };
 
   const confirmRoll = () => {
-    context.actions.confirm(total, position, effectivity);
+    console.log(total);
+    // context.actions.confirm(total);
   }
 </script>
 
 <div class="band-of-blades-sheets roll-dialog">
 
-  {#if isNotSavingThrow}
-    <div class="roll-dialog-section">
-      <div class="roll-dialog-section-title">{foundryAdapter.localize('position.title')}</div>
-      <div class="roll-dialog-section-options">
-        {#each positions as item}
-          <label class="roll-dialog-section-option">
-            <input hidden name="position" type="radio" value={item} bind:group={position} />
-            <span>{foundryAdapter.localize(`position.${item}`)}</span>
-          </label>
-        {/each}
-      </div>
+  <div class="roll-dialog-section">
+    <div class="roll-dialog-section-title">{foundryAdapter.localize('mission.title')}</div>
+    <div class="roll-dialog-section-options">
+      {#each missions as item}
+        <label class="roll-dialog-section-option">
+          <input hidden name="position" type="radio" value={item} bind:group={mission}/>
+          <span>{foundryAdapter.localize(`mission.${item}.name`)}</span>
+        </label>
+      {/each}
     </div>
+  </div>
 
-    <div class="roll-dialog-section">
-      <div class="roll-dialog-section-title">{foundryAdapter.localize('effect.title')}</div>
-      <div class="roll-dialog-section-options">
-        {#each effects as item}
-          <label class="roll-dialog-section-option">
-            <input hidden name="effect" type="radio" value={item} bind:group={effectivity}/>
-            <span>{foundryAdapter.localize(`effect.${item}`)}</span>
-          </label>
-        {/each}
-      </div>
+  <div class="roll-dialog-section-header">{foundryAdapter.localize('mission.common.name')}:</div>
+
+  <div class="roll-dialog-section">
+    <div class="roll-dialog-section-title">
+      <span>{@html foundryAdapter.localize('mission.common.questions.loyal')}</span>
     </div>
-  {/if}
+    <div class="roll-dialog-section-options as-single">
+      <label class="roll-dialog-section-option">
+        <input
+            hidden
+            type="checkbox"
+            value={isLegionLoyal}
+            onclick={() => isLegionLoyal = !isLegionLoyal}
+        />
+        <span>1d6</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="roll-dialog-section">
+    <div class="roll-dialog-section-title">
+      <span>{@html foundryAdapter.localize('mission.common.questions.intel_spent')}</span>
+    </div>
+    <div class="roll-dialog-section-options as-single">
+      <label class="roll-dialog-section-option">
+        <input
+            hidden
+            type="checkbox"
+            value={isCommanderSpendIntel}
+            onclick={() => isCommanderSpendIntel = !isCommanderSpendIntel}
+        />
+        <span>1d6</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="roll-dialog-section">
+    <div class="roll-dialog-section-title">
+      <span>{@html foundryAdapter.localize('mission.common.questions.no_rookies')}</span>
+    </div>
+    <div class="roll-dialog-section-options as-single">
+      <label class="roll-dialog-section-option">
+        <input
+            hidden
+            type="checkbox"
+            onclick={() => isNoRookies = !isNoRookies}
+            value={isNoRookies}
+        />
+        <span>1d6</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="roll-dialog-section">
+    <div class="roll-dialog-section-title">
+      <span>{@html foundryAdapter.localize('mission.common.questions.any_rebels')}</span>
+    </div>
+    <div class="roll-dialog-section-options as-single">
+      <label class="roll-dialog-section-option">
+        <input
+            hidden
+            type="checkbox"
+            value={isAnyRebels}
+            onclick={() => isAnyRebels = !isAnyRebels}
+        />
+        <span>-1d6</span>
+      </label>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="roll-dialog-section-header">{foundryAdapter.localize(`mission.${mission}.name`)}:</div>
+
+  <div class="roll-dialog-section">
+    <div class="roll-dialog-section-title">
+      <span>{@html foundryAdapter.localize(`mission.${mission}.questions.positive`)}</span>
+    </div>
+    <div class="roll-dialog-section-options as-single">
+      <label class="roll-dialog-section-option">
+        <input
+            hidden
+            type="checkbox"
+            value={isPositive}
+            onclick={() => isPositive = !isPositive}
+        />
+        <span>1d6</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="roll-dialog-section">
+    <div class="roll-dialog-section-title">
+      <span>{@html foundryAdapter.localize(`mission.${mission}.questions.negative`)}</span>
+    </div>
+    <div class="roll-dialog-section-options as-single">
+      <label class="roll-dialog-section-option">
+        <input
+            hidden
+            type="checkbox"
+            onclick={() => isNegative = !isNegative}
+            value={isNegative}
+        />
+        <span>-1d6</span>
+      </label>
+    </div>
+  </div>
 
   {#if context.bonuses.group.size > 0}
     {#each context.bonuses.group as [key, entity]}
-      <div class="roll-dialog-section">
-        <div class="roll-dialog-section-title">
-          {foundryAdapter.localize('dialog.help.title')}
-          <div class="roll-dialog-source">
-            {foundryAdapter.localize(`specialization.${entity.key}.name`)}
-          </div>
-          <div class="roll-dialog-source">
-            {foundryAdapter.localize(`abilities.${entity.key}.${entity.ability}.name`)}
-          </div>
-        </div>
-        <div class="roll-dialog-section-options as-single">
-          <label class="roll-dialog-section-option">
-            <input hidden type="checkbox" value={entity.ability} bind:group={selected}/>
-            <span>{entity.bonus.bonus}d6</span>
-          </label>
-        </div>
-      </div>
-    {/each}
-  {/if}
-
-  {#snippet bonusTitleRow(entity)}
-    <div class="roll-dialog-section-title">
-      {foundryAdapter.localize('dialog.bonus.title')}
-      <div class="roll-dialog-source">
-        {foundryAdapter.localize(`abilities.${entity.key}.${entity.ability}.name`)}
-      </div>
-    </div>
-  {/snippet}
-
-  {#snippet bonusDiceRow(entity)}
-    <label class="roll-dialog-section-option">
-      {onShow(entity)}
-      <input hidden type="checkbox" value={entity.ability} bind:group={selected}/>
-      <span>{entity.bonus.bonus}d6</span>
-    </label>
-  {/snippet}
-
-  {#snippet bonusPotencyRow(entity)}
-    <label class="roll-dialog-section-option">
-      {onShow(entity)}
-      <input hidden type="checkbox" value={entity.ability} bind:group={selected}/>
-      <span>{foundryAdapter.localize('potency')}</span>
-    </label>
-  {/snippet}
-
-  {#if context.bonuses.personal.size > 0}
-    {#each context.bonuses.personal as [key, entity]}
-      {#if entity.bonus.position === undefined}
+      {#if entity.bonus.position === undefined || entity.bonus.position === mission}
         <div class="roll-dialog-section">
-          {@render bonusTitleRow(entity)}
+          <div class="roll-dialog-section-title">
+            <div class="roll-dialog-source">
+              {foundryAdapter.localize(`${entity.name}.${entity.key}.name`)}
+            </div>
+            <div class="roll-dialog-source">
+              {foundryAdapter.localize(`abilities.${entity.key}.${entity.ability}.name`)}
+            </div>
+          </div>
           <div class="roll-dialog-section-options as-single">
-            {#if entity.bonus.bonus !== undefined}
-              {@render bonusDiceRow(entity)}
-            {/if}
-            {#if entity.bonus.potency !== undefined}
-              {@render bonusPotencyRow(entity)}
-            {/if}
+            <label class="roll-dialog-section-option">
+              <input hidden type="checkbox" value={entity.ability} bind:group={selected}/>
+              <span>{entity.bonus.bonus}d6</span>
+            </label>
           </div>
         </div>
-      {:else if entity.bonus.position === position}
-        <div class="roll-dialog-section">
-          {@render bonusTitleRow(entity)}
-          <div class="roll-dialog-section-options as-single">
-            {@render bonusDiceRow(entity)}
-          </div>
-        </div>
-        {:else}
+      {:else}
         { onHide(entity) }
       {/if}
     {/each}
   {/if}
-
-  {#if context.bonuses.heritage.size > 0}
-    {#each context.bonuses.heritage as [key, entity]}
-      <div class="roll-dialog-section">
-        <div class="roll-dialog-section-title">
-          {foundryAdapter.localize('dialog.heritage.title')}
-          <div class="roll-dialog-source">
-            {foundryAdapter.localize(`heritage.${entity.key}.traits.${entity.ability}.name`)}
-          </div>
-        </div>
-        <div class="roll-dialog-section-options as-single">
-          {#if entity.bonus.bonus !== undefined}
-            {@render bonusDiceRow(entity)}
-          {/if}
-          {#if entity.bonus.potency !== undefined}
-            {@render bonusPotencyRow(entity)}
-          {/if}
-        </div>
-      </div>
-    {/each}
-  {/if}
-
-  <div class="roll-dialog-section">
-    <div class="roll-dialog-section-title">{foundryAdapter.localize('dialog.roll.basic.title')}</div>
-    <div class="roll-dialog-section-description">{context.dices.basic}d6</div>
-  </div>
 
   {#if context.dices.bonus > 0}
     <div class="roll-dialog-section">
@@ -227,9 +275,17 @@
     background-color: var(--band-of-blades-sheets-background-primary-color);
   }
 
+  .roll-dialog-section-header {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--band-of-blades-sheets-font-primary-color);
+    font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
+  }
+
   .roll-dialog-section {
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
   }
 
   .roll-dialog-title,

@@ -1,9 +1,19 @@
 <script lang="ts">
   import Squads from "../molecules/marshal/squads.svelte";
   import Specialists from "../molecules/marshal/specialists.svelte";
-  import { foundryAdapter } from "src/foundry/foundry.adapter";
-  let tab: 'squads' | 'specialists' | 'morale' = $state('squads');
+  import Notes from "src/lib/v1/molecules/notes.svelte";
+  import Morale from "../molecules/marshal/morale.svelte";
+  import { getMarshalSheetContext } from "src/lib/v1/organisms/role/role.context";
+  import { type IMarshalActions, type IRole } from "src/types/roles.type";
 
+
+  let tab: 'squads' | 'specialists' | 'notes' = $state('squads');
+  const context = $derived(getMarshalSheetContext() as IRole & IMarshalActions);
+
+
+  let enrichedPromise = $derived(
+    foundry.applications.ux.TextEditor.enrichHTML()
+  );
 </script>
 
 <div class="flags">
@@ -19,21 +29,42 @@
       <i class="ra ra-large-hammer"></i>
     </span>
   </label>
+
+  <label class="flag notes">
+    <span class="flag-substrate">
+      <input type="radio" hidden bind:group={tab} value="notes">
+      <i class="ra ra-book"></i>
+    </span>
+  </label>
 </div>
+
 <div class="main">
-  <div class="tabs">
-    <label class="tab">
-      <input type="radio" hidden bind:group={tab} value="squads"/>
-      <span>Squads</span>
-    </label>
-    <label class="tab">
-      <input type="radio" hidden bind:group={tab} value="specialists"/>
-      <span>Specialists</span>
-    </label>
-  </div>
+  <Morale />
+<!--  <div class="tabs">-->
+<!--    <label class="tab">-->
+<!--      <input type="radio" hidden bind:group={tab} value="squads"/>-->
+<!--      <span>Squads</span>-->
+<!--    </label>-->
+<!--    <label class="tab">-->
+<!--      <input type="radio" hidden bind:group={tab} value="specialists"/>-->
+<!--      <span>Specialists</span>-->
+<!--    </label>-->
+<!--  </div>-->
   {#if tab === 'specialists'}<Specialists />{/if}
   {#if tab === 'squads'}<Squads />{/if}
-
+  {#if tab === 'notes'}
+    {#await enrichedPromise then enriched}
+      <Notes
+          documentUuid={context._id}
+          content={context.notes}
+          editorOptions={{ toggled: false }}
+          manageSecrets={true}
+          field="system.notes"
+          onSave={() => context.actions.editNotes()}
+          {enriched}
+      />
+    {/await}
+  {/if}
 </div>
 
 <style lang="scss">
@@ -44,11 +75,11 @@
     height: 100%;
 
     display: grid;
-    align-content: flex-start;
+    grid-template-rows: auto 1fr;
     align-items: flex-start;
 
-    gap: 0.5rem 1rem;
-    padding: 6.125rem 1rem 1rem;
+    gap: 1rem;
+    padding: 1rem;
 
     &:after,
     &:before {
@@ -133,7 +164,7 @@
       }
     }
 
-    &.morale {
+    &.notes {
       height: 50px;
       color: oklch(from var(--band-of-blades-sheets-tertiary-highlight-color) calc(l - 0.2) c h);
 

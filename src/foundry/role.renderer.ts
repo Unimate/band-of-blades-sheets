@@ -2,11 +2,11 @@ import { mount, unmount } from "svelte";
 import RoleSheet from '../lib/v1/organisms/role/root.svelte';
 import { CoarseReactivityProvider } from "../utils/reactivity/reactivity.svelte";
 import { CONSTANTS } from "../constants";
-import { requestSquads } from "../mappers/actor.mapper";
-import { getLegionnairesBySquads, getSpecialistsBySpeciality } from "../mappers/role.mapper";
+import { mapMarshal, mapRole } from "../mappers/role.mapper";
 import { REMAPPED_SQUADS } from "../dictionaries/squads";
 import { foundryAdapter } from "./foundry.adapter";
-import { BandOfBladesSheetsActor } from "./actor.renderer";
+import { RoleSpecialization } from "../types/roles.type";
+import { BandOfBladesSheetsEngagementsDialog } from "./dialog.renderer";
 
 
 export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorSheetV2 {
@@ -56,12 +56,26 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
       });
       this.render();
     },
-    openActorPage: async (_id: string)=> {
+    openActorPage: async (_id: string) => {
       const actor = game.actors.get(_id);
       if (actor !== undefined) {
         actor.sheet.render(true);
       }
-    }
+    },
+    updateName: async (name: string) => {
+      this.actor.update({ name });
+    },
+    updateMorale: async (value: number) => {
+      await this.actor.update({ 'system.morale': value });
+    },
+    editNotes: async () => {
+      this.actor.sheet.submit();
+    },
+    rollEngagements: async () => {
+      new BandOfBladesSheetsEngagementsDialog({
+        role: this.#context.data,
+      }).render(true);
+    },
   }
 
   static DEFAULT_OPTIONS = {
@@ -85,16 +99,21 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
   async _prepareContext(options = {}) {
     const documentContext = await super._prepareContext(options);
 
-    const legionnaires = getLegionnairesBySquads(game);
-    const specialists = getSpecialistsBySpeciality(game);
-
-    const squads = await requestSquads();
+    const role = mapRole(this.actor);
+    let specialization = {};
+    if (role.character.specialization !== null) {
+      switch (role.character.specialization) {
+        case RoleSpecialization.Marshal: {
+          specialization = await mapMarshal(this.actor);
+          break;
+        }
+      }
+    }
 
     return {
+      ...role,
+      ...specialization,
       actions: this.createActions(),
-      legionnaires: legionnaires,
-      specialists: specialists,
-      dictionaries: { squads },
       ...documentContext,
     };
   }

@@ -9,6 +9,7 @@ import {
   ZemyatiTraitEnum
 } from "../types/actor.type";
 import { type IHeritageBonus, type ISpecializationBonuses } from "../types/dices.type";
+import { RoleSpecialization } from "../types/roles.type";
 
 export const PERSONAL: ISpecializationBonuses = {
   [SpecialistEnum.Scout]: {
@@ -20,18 +21,18 @@ export const PERSONAL: ISpecializationBonuses = {
       maneuver: { potency: 1 }
     },
     daredevil: {
-      rig: { bonus: 1, minPosition: 'desperate' },
-      research: { bonus: 1, minPosition: 'desperate' },
-      scout: { bonus: 1, minPosition: 'desperate' },
-      grit: { bonus: 1, minPosition: 'desperate' },
-      maneuver: { bonus: 1, minPosition: 'desperate' },
-      shoot: { bonus: 1, minPosition: 'desperate' },
-      skirmish: { bonus: 1, minPosition: 'desperate' },
-      wreck: { bonus: 1, minPosition: 'desperate' },
-      consort: { bonus: 1, minPosition: 'desperate' },
-      discipline: { bonus: 1, minPosition: 'desperate' },
-      marshal: { bonus: 1, minPosition: 'desperate' },
-      sway: { bonus: 1, minPosition: 'desperate' }
+      rig: { bonus: 1, position: 'desperate' },
+      research: { bonus: 1, position: 'desperate' },
+      scout: { bonus: 1, position: 'desperate' },
+      grit: { bonus: 1, position: 'desperate' },
+      maneuver: { bonus: 1, position: 'desperate' },
+      shoot: { bonus: 1, position: 'desperate' },
+      skirmish: { bonus: 1, position: 'desperate' },
+      wreck: { bonus: 1, position: 'desperate' },
+      consort: { bonus: 1, position: 'desperate' },
+      discipline: { bonus: 1, position: 'desperate' },
+      marshal: { bonus: 1, position: 'desperate' },
+      sway: { bonus: 1, position: 'desperate' }
     }
   },
   [SpecialistEnum.Heavy]: {
@@ -158,4 +159,12 @@ export const HERITAGE: IHeritageBonus = {
     [SkillCategoryLabel.Resolve]: { bonus: 1 },
     [SkillCategoryLabel.Prowess]: { bonus: 1 },
   }
+}
+
+export const CHOSEN: Record<string, object> = {
+  "Living God's Fury": { bonus: 1, position: 'assault', },
+  "Horned God's Eyes": { bonus: 1, position: 'recon', },
+  'Attrition Strategies': { bonus: -1, position: 'supply' },
+  'Defilement': { bonus: -1, position: 'religious' },
+  'Massacre': { bonus: -1, position: 'assault', },
 }

@@ -249,6 +249,26 @@
         }
       }
     },
+    "chosen": {
+      "Horned One": {
+        "name": "Horned One"
+      },
+      "Zora": {
+        "name": "Zora"
+      },
+      "Shreya": {
+        "name": "Shreya"
+      },
+      "Bonerender": {
+        "name": "Bonerender"
+      },
+      "Stormbreaker": {
+        "name": "Stormbreaker"
+      },
+      "Flesh Blighter": {
+        "name": "Flesh Blighter"
+      }
+    },
     "manage_abilities": "Manage abilities",
     "heritage": {
       "select": "Heritage",
@@ -383,6 +403,44 @@
       },
       "common": {
         "name": "Common"
+      }
+    },
+    "role": {
+      "select": "Role",
+      "Marshal": {
+        "name": "Marshal",
+        "action": "<b>Anchor</b> is an action that Heavies specialize and train in. Unlike most actions it’s not rolled, but its rating determines its uses per mission. While on a mission, you may spend <b>anchor</b> uses to fight as a small group. This means you can face groups of lesser undead without loss of <b>effect</b>.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through might or fortitude.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Skirmish:</i> <b>2</b>, <i>Wreck:</i> <b>1</b>.<br><b>Will receive special ability:</b> <i>Anchor:</i> <b>1</b>.",
+        "engagements": "Engagements",
+        "morale": {
+          "name": "Morale",
+          "description": ""
+        }
+      },
+      "Commander": {
+        "name": "Commander",
+        "action": "<b>Doctor</b> is an action that Medics specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>doctor</b> uses to treat a fellow Legionnaire so they ignore all wound penalties for a scene. <b>Level 4 harm</b> is still lethal.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through medical knowledge or emotional comfort.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Research:</i> <b>2</b>, <i>Maneuver:</i> <b>1</b>, <i>Consort:</i> <b>1</b>, <i>Discipline:</i> <b>1</b>.<br><b>Will receive special ability:</b> <i>Doctor:</i> <b>1</b>."
+      },
+      "Quartermaster": {
+        "name": "Quartermaster",
+        "action": "<b>Channels</b> is an action that Officers specialize in. Unlike most actions it’s not rolled, but its rating determines its uses per mission. You may spend <b>channels</b> uses to <b>acquire an asset</b> for your squad in a <b>flashback</b>. Roll <b>sway</b> to determine quality. You can spend additional <b>uses</b> to improve the quality as per <b>supply</b> rules. Such assets are temporary or \"on loan\" and will go away when the mission ends.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through enforcing discipline or strategic planning.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Discipline:</i> <b>1</b>, <i>Sway:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Channels:</i> <b>1</b>."
+      },
+      "Lorekeeper": {
+        "name": "Lorekeeper",
+        "action": "<b>Scrounge</b> is an action that Scouts specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>scrounge</b> uses to find safe and secure shelter or one <b>load</b> worth of <b>supplies</b> for everyone in your squad.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through stealth or foresight.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Maneuver:</i> <b>1</b>, <i>Scout:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Scrounge:</i> <b>1</b>."
+      },
+      "Spymaster": {
+        "name": "Spymaster",
+        "action": "<b>Aim</b> is an action that Snipers specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>aim</b> uses to increase the <b>effect</b> level of a shot. This means you can sometimes take out large, dangerous enemies with a single bullet.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through keen observation or key shots.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Scout:</i> <b>1</b>, <i>Shoot:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Aim:</i> <b>1</b>."
       }
     },
     "abilities": {
@@ -622,6 +680,31 @@
           "name": "Veteran",
           "description": "Take a <b>special ability</b> from another source."
         }
+      },
+      "Flesh Blighter": {
+        "Attrition Strategies": {
+          "name": "Attrition Strategies"
+        }
+      },
+      "Stormbreaker": {
+        "Defilement": {
+          "name": "Defilement"
+        }
+      },
+      "Zora": {
+        "Living God's Fury": {
+          "name": "Living God's Fury"
+        }
+      },
+      "Horned One": {
+        "Horned God's Eyes": {
+          "name": "Horned God's Eyes"
+        }
+      },
+      "Bonerender": {
+        "Massacre": {
+          "name": "Massacre"
+        }
       }
     },
     "or": "or",
@@ -737,6 +820,46 @@
         "results": {
           "common": "Take <b>Stress</b> equal to 6 minus the highest (or lowest in case of a 0d roll) die result, which should be",
           "critical": "Clear <b>1 Stress.</b>"
+        }
+      }
+    },
+    "mission": {
+      "title": "Before Every Mission:",
+      "common": {
+        "name": "Common",
+        "questions": {
+          "loyal": "Are all on the mission oathsworn to the Legion?",
+          "intel_spent": "Did the Commander spend <b>1 intel</b> to give you foresight and info?",
+          "no_rookies": "Is everyone on the mission a Specialist or Soldier?",
+          "any_rebels": "Does any Legionnaire distrust the leadership or not fear them enough to obey orders on the battlefield?"
+        }
+      },
+      "assault": {
+        "name": "Assault",
+        "questions": {
+          "positive": "Did the Quartermaster equip the soldiers with Black Shot?",
+          "negative": "Is any Legionnaire starting the mission wounded?"
+        }
+      },
+      "recon": {
+        "name": "Recon",
+        "questions": {
+          "positive": "Did the Quartermaster spend Horses to equip the mission?",
+          "negative": "Is any Legionnaire starting with heavy <b>load</b>?"
+        }
+      },
+      "religious": {
+        "name": "Religious",
+        "questions": {
+          "positive": "Did the Quartermaster send Religious Supplies to ward and protect the Legionnaires?",
+          "negative": "Is any Legionnaire starting with <b>blight</b>?"
+        }
+      },
+      "supply": {
+        "name": "Supply",
+        "questions": {
+          "positive": "Did the Quartermaster spend Food to equip the mission?",
+          "negative": "Is the current <b>pressure</b> higher than 2?"
         }
       }
     }

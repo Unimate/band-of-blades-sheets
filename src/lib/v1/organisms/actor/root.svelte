@@ -1,6 +1,6 @@
 <script lang="ts">
   import Actor from "./organisms/actor.svelte";
-  import Notes from "./organisms/notes.svelte";
+  import Notes from "../../molecules/notes.svelte";
   import Navigation from "../../molecules/navigation.svelte";
   import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
 

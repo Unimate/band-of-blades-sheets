@@ -41,4 +41,4 @@ export type IHeritageBonus = {
   [key in (Trait)]?: ISkillBonus;
 }
 
-export interface IBonusAttributes { bonus?: number, potency?: number, minPosition?: string }
+export interface IBonusAttributes { bonus?: number, potency?: number, position?: string }

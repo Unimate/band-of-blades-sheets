@@ -249,6 +249,23 @@
         }
       }
     },
+    "chosen": {
+      "Horned One": {
+        "name": "Рогатая"
+      },
+      "Zora": {
+        "name": "Зора"
+      },
+      "Bonerender": {
+        "name": "Костолом"
+      },
+      "Stormbreaker": {
+        "name": "Буря"
+      },
+      "Flesh Blighter": {
+        "name": "Погибель"
+      }
+    },
     "manage_abilities": "Управление навыками",
     "heritage": {
       "select": "Наследие",
@@ -383,6 +400,44 @@
       },
       "common": {
         "name": "Общее"
+      }
+    },
+    "role": {
+      "select": "Роль",
+      "Marshal": {
+        "name": "Маршал",
+        "action": "<b>Anchor</b> is an action that Heavies specialize and train in. Unlike most actions it’s not rolled, but its rating determines its uses per mission. While on a mission, you may spend <b>anchor</b> uses to fight as a small group. This means you can face groups of lesser undead without loss of <b>effect</b>.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through might or fortitude.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Skirmish:</i> <b>2</b>, <i>Wreck:</i> <b>1</b>.<br><b>Will receive special ability:</b> <i>Anchor:</i> <b>1</b>.",
+        "engagements": "Боеготовность",
+        "morale": {
+          "name": "Боевой дух",
+          "description": ""
+        }
+      },
+      "Commander": {
+        "name": "Капитан",
+        "action": "<b>Doctor</b> is an action that Medics specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>doctor</b> uses to treat a fellow Legionnaire so they ignore all wound penalties for a scene. <b>Level 4 harm</b> is still lethal.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through medical knowledge or emotional comfort.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Research:</i> <b>2</b>, <i>Maneuver:</i> <b>1</b>, <i>Consort:</i> <b>1</b>, <i>Discipline:</i> <b>1</b>.<br><b>Will receive special ability:</b> <i>Doctor:</i> <b>1</b>."
+      },
+      "Quartermaster": {
+        "name": "Интендант",
+        "action": "<b>Channels</b> is an action that Officers specialize in. Unlike most actions it’s not rolled, but its rating determines its uses per mission. You may spend <b>channels</b> uses to <b>acquire an asset</b> for your squad in a <b>flashback</b>. Roll <b>sway</b> to determine quality. You can spend additional <b>uses</b> to improve the quality as per <b>supply</b> rules. Such assets are temporary or \"on loan\" and will go away when the mission ends.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through enforcing discipline or strategic planning.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Discipline:</i> <b>1</b>, <i>Sway:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Channels:</i> <b>1</b>."
+      },
+      "Lorekeeper": {
+        "name": "Летописец",
+        "action": "<b>Scrounge</b> is an action that Scouts specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>scrounge</b> uses to find safe and secure shelter or one <b>load</b> worth of <b>supplies</b> for everyone in your squad.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through stealth or foresight.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Maneuver:</i> <b>1</b>, <i>Scout:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Scrounge:</i> <b>1</b>."
+      },
+      "Spymaster": {
+        "name": "Глава разведки",
+        "action": "<b>Aim</b> is an action that Snipers specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>aim</b> uses to increase the <b>effect</b> level of a shot. This means you can sometimes take out large, dangerous enemies with a single bullet.",
+        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through keen observation or key shots.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
+        "startup": "<b>Requirements:</b> <i>Scout:</i> <b>1</b>, <i>Shoot:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Aim:</i> <b>1</b>."
       }
     },
     "abilities": {
@@ -622,6 +677,31 @@
           "name": "Необычное достоинство",
           "description": "Выбери <b>особое достоинство</b> другого персонажа."
         }
+      },
+      "Flesh Blighter": {
+        "Attrition Strategies": {
+          "name": "Стратегия истощения"
+        }
+      },
+      "Stormbreaker": {
+        "Defilement": {
+          "name": "Осквернение"
+        }
+      },
+      "Zora": {
+        "Living God's Fury": {
+          "name": "Гнев Живобога"
+        }
+      },
+      "Horned One": {
+        "Horned God's Eyes": {
+          "name": "Взор Рогатого"
+        }
+      },
+      "Bonerender": {
+        "Massacre": {
+          "name": "Резня"
+        }
       }
     },
     "or": "или",
@@ -737,6 +817,46 @@
         "results": {
           "common": "Ты получаешь 6 пунктов <b>стресса</b> минус лучший результат, выпавший на кубиках при проверке. Добавь стресс: ",
           "critical": "Ты уменьшаешь свой <b>стресс на 1</b>"
+        }
+      }
+    },
+    "mission": {
+      "title": "Операция:",
+      "common": {
+        "title": "Перед каждой операцией:",
+        "questions": {
+          "loyal": "Все ли участники операции присягнули Легиону на верность?",
+          "intel_spent": "Использовал ли командир пакет разведданных, чтобы собрать информацию?",
+          "no_rookies": "В операции участвуют только специалисты и солдаты?",
+          "any_rebels": "Кто‑то из легионеров не доверяет своим командирам, не уважает их и можетослушаться приказа на поле боя?"
+        }
+      },
+      "assault": {
+        "name": "Штурм",
+        "questions": {
+          "positive": "Интендант выдал легионерам <b>чёрные пули</b>?",
+          "negative": "Кто‑то из идущих на операцию легионеров ранен?"
+        }
+      },
+      "recon": {
+        "name": "Разведка",
+        "questions": {
+          "positive": "Интендант выдал лошадей на операцию?",
+          "negative": "Кто‑нибудь из легионеров идёт на операцию с тяжёлой нагрузкой?"
+        }
+      },
+      "religious": {
+        "name": "Религиозная",
+        "questions": {
+          "positive": "Интендант выдал <b>религиозные принадлежности</b>, чтобы усилить и  защитить отряд?",
+          "negative": "На ком‑нибудь из идущих на операцию есть <b>порча</b>?"
+        }
+      },
+      "supply": {
+        "name": "Снабжение",
+        "questions": {
+          "positive": "Выдал ли интендант продовольствие на операцию?",
+          "negative": "<b>Натиск</b> выше 2?"
         }
       }
     }

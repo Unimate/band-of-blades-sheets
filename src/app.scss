@@ -3,7 +3,8 @@
 :root {
   --band-of-blades-sheets-background-primary-color: oklch(1 0 0);
   --band-of-blades-sheets-background-secondary-color: oklch(0 0 0);
-  --band-of-blades-sheets-background-tertiary-color: oklch(0.9 0 0);
+  --band-of-blades-sheets-background-tertiary-color: oklch(0.92 0 0);
+  --band-of-blades-sheets-background-quaternary-color: oklch(0.8 0 0);
 
 
   --band-of-blades-sheets-primary-highlight-color: oklch(0.5323 0.1864 26.02);
@@ -63,9 +64,16 @@
           min-width: 200px;
           min-height: 36px;
         }
-        &.dialog {
+        &.engagement-dialog,
+        &.roll-dialog {
           min-width: 200px;
           min-height: 36px;
+        }
+
+        &.engagement-dialog {
+          .flags {
+            display: none;
+          }
         }
       }
 
@@ -75,7 +83,11 @@
           min-width: 750px;
           min-height: 780px;
         }
-        &.dialog {
+        &.engagement-dialog {
+          min-width: 500px;
+          min-height: 205px;
+        }
+        &.roll-dialog {
           min-width: 410px;
           min-height: 205px;
         }
@@ -247,6 +259,14 @@
         cursor: default;
         background-color: oklch(from var(--band-of-blades-sheets-primary-highlight-color) l c h / calc(alpha - 0.5));
       }
+    }
+
+    .button--capital {
+      width: 100%;
+      height: 100%;
+      font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
+      font-size: 1.125rem;
+      justify-content: flex-start;
     }
 
     .button--secondary {
