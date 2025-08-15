@@ -1,4 +1,4 @@
-import { LegionnaireEnum, type Specialization, type Trauma } from "../types/actor.type";
+import { LegionnaireEnum, SpecialistEnum, type Specialization, type Trauma } from "../types/actor.type";
 import { SQUADS } from "../dictionaries/squads";
 import type { ISquadMate } from "../types/roles.type";
 
@@ -63,4 +63,16 @@ export const getLegionnairesBySquads = (game: any) => {
     squads[key].push(mapSquadMate(legionnaire));
   });
   return squads;
+}
+
+export const getSpecialistsBySpeciality = (game: any) => {
+  const specialists = getActorsBySpecialization(game, Object.values(SpecialistEnum));
+  const specialities: Record<string, any[]> = {};
+
+  specialists.forEach((specialist: any) => {
+    const key = specialist.system.class.toLowerCase();
+    specialities[key] ??= [];
+    specialities[key].push(mapSquadMate(specialist));
+  });
+  return specialities;
 }

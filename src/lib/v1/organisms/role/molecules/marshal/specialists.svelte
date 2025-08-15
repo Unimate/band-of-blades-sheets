@@ -4,103 +4,78 @@
   import { getMarshalSheetContext } from "src/lib/v1/organisms/role/role.context";
   import type { IDictionary } from "src/types/dictionaries.type";
   import type { IMarshal, IMarshalActions } from "src/types/roles.type";
+  import { SpecialistEnum } from "src/types/actor.type";
 
   const context = $derived(getMarshalSheetContext() as IDictionary & IMarshal & IMarshalActions);
 
-  const staffTheSquad = (name: string) => {
-    const squad = context.legionnaires[name];
-    const staff = 5 - (squad ?? []).length;
-    context.actions.staffTheSquad(name, staff);
-  }
+  const specialties = Object.values(SpecialistEnum);
 
-  const openLegionnairePage = (_id: string) => {
+  const openSpecialistPage = (_id: string) => {
     context.actions.openActorPage(_id);
   }
-
 </script>
 
 <div class="container">
 
-  {#snippet renderLegionnaire(legionnaire)}
+  {#snippet renderSpecialist(specialist)}
     <li class="squad-mate">
       <div class="squad-mate-information">
         <div class="squad-mate-icon">
-          <img src={legionnaire.character.image} alt="specialization name"/>
+          <img src={specialist.character.image} alt="specialization name"/>
         </div>
-        <button class="squad-mate-link" onclick={() => openLegionnairePage(legionnaire._id)}>{legionnaire.character.name}</button>
+        <button class="squad-mate-link" onclick={() => openSpecialistPage(specialist._id)}>
+          {specialist.character.name}
+        </button>
       </div>
       <div class="squad-mate-state">
         <span>Wounds:</span>
         <Indicators
-            id={legionnaire._id}
+            id={specialist._id}
             label="wounds"
-            limit={legionnaire.injuries.conditions.trauma.max}
+            limit={specialist.injuries.conditions.trauma.max}
             total={4}
             version="secondary"
-            current={legionnaire.injuries.conditions.trauma.types.length}
+            current={specialist.injuries.conditions.trauma.types.length}
         />
       </div>
       <div class="squad-mate-state">
         <span>Stress:</span>
         <Indicators
-            id={legionnaire._id}
+            id={specialist._id}
             label="stress"
-            limit={legionnaire.injuries.injuries.stress.max}
+            limit={specialist.injuries.injuries.stress.max}
             total={10}
-            current={legionnaire.injuries.injuries.stress.current}
+            current={specialist.injuries.injuries.stress.current}
         />
       </div>
     </li>
   {/snippet}
 
-  {#each context.dictionaries.squads as squad}
+  {#each specialties as specialty}
     <div class="squad-item">
       <div class="squad-panel">
         <div class="squad-information">
           <span class="squad-icon">
-            <img src={squad.image} alt={squad.name}/>
+            <img src={'systems/band-of-blades/styles/assets/icons/' + specialty + '.svg'} alt="specialization name"/>
           </span>
           <span class="squad-name">
-            {foundryAdapter.hasLocale(`origin_squads.${squad.name}.name`) ? foundryAdapter.localize(`origin_squads.${squad.name}.name`) : squad.name}
+            {foundryAdapter.localize(`specialization.${specialty}.name`)}
           </span>
         </div>
-        <div class="squad-control-panel">
-          {#if context.legionnaires[squad.name] === undefined ||  context.legionnaires[squad.name].length < 5}
-            <button class="button" onclick={() => staffTheSquad(squad.name)}>Staff the squad</button>
-          {/if}
-        </div>
+        <div class="squad-control-panel"></div>
       </div>
-      {#if context.legionnaires[squad.name] !== undefined}
-        {@const legionnaires = context.legionnaires[squad.name]}
+      {#if context.specialists[specialty] !== undefined}
+        {@const specialists = context.specialists[specialty]}
         <div class="squad-container">
           <ul class="squad-list">
-            {#each legionnaires as legionnaire}
-              {@render renderLegionnaire(legionnaire)}
+            {#each specialists as specialist}
+              {@render renderSpecialist(specialist)}
             {/each}
           </ul>
         </div>
       {/if}
     </div>
   {/each}
-
-  {#if context.legionnaires['unassigned'] !== undefined}
-    {@const legionnaires = context.legionnaires['unassigned']}
-    <div class="squad-item">
-      <div class="squad-panel">
-        <div class="squad-information">
-          <span class="squad-name">Unassigned</span>
-        </div>
-      </div>
-      <div class="squad-container">
-        <ul class="squad-list">
-          {#each legionnaires as legionnaire}
-            {@render renderLegionnaire(legionnaire)}
-          {/each}
-        </ul>
-      </div>
-    </div>
-  {/if}
-
 </div>
 
 <style lang="scss">

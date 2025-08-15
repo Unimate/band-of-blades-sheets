@@ -1,0 +1,31 @@
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 0.5rem;
+
+  font-size: 1rem;
+  background-color: var(--band-of-blades-sheets-background-secondary-color);
+
+border-radius: 4px;
+
+  .tab {
+    input[type='radio']:checked + span {
+      color: var(--band-of-blades-sheets-primary-highlight-color);
+    }
+
+    span {
+      cursor: pointer;
+      color: var(--band-of-blades-sheets-font-secondary-color);
+      font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
+
+      transition: color 75ms ease-in-out;
+      padding: 0 0.25rem 0.125rem;
+      &:hover {
+        color: var(--band-of-blades-sheets-primary-highlight-color);
+      }
+    }
+  }
+}

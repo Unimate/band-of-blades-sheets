@@ -3,7 +3,7 @@ import RoleSheet from '../lib/v1/organisms/role/root.svelte';
 import { CoarseReactivityProvider } from "../utils/reactivity/reactivity.svelte";
 import { CONSTANTS } from "../constants";
 import { requestSquads } from "../mappers/actor.mapper";
-import { getLegionnairesBySquads } from "../mappers/role.mapper";
+import { getLegionnairesBySquads, getSpecialistsBySpeciality } from "../mappers/role.mapper";
 import { REMAPPED_SQUADS } from "../dictionaries/squads";
 import { foundryAdapter } from "./foundry.adapter";
 import { BandOfBladesSheetsActor } from "./actor.renderer";
@@ -86,15 +86,15 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
     const documentContext = await super._prepareContext(options);
 
     const legionnaires = getLegionnairesBySquads(game);
+    const specialists = getSpecialistsBySpeciality(game);
 
     const squads = await requestSquads();
 
     return {
       actions: this.createActions(),
       legionnaires: legionnaires,
-      dictionaries: {
-        squads,
-      },
+      specialists: specialists,
+      dictionaries: { squads },
       ...documentContext,
     };
   }

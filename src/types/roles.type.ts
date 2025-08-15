@@ -19,6 +19,7 @@ export interface ISquadMate {
 
 export interface IMarshal {
   legionnaires: Record<string, ISquadMate[]>;
+  specialists: Record<string, ISquadMate[]>;
 }
 
 export interface IMarshalActions {
