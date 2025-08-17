@@ -60,6 +60,10 @@
           }
         }
 
+        .flags {
+          display: none;
+        }
+
         &.actor {
           min-width: 200px;
           min-height: 36px;
