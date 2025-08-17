@@ -191,7 +191,7 @@
   .harm-row {
     display: grid;
     height: 32px;
-    grid-template-columns: 24px auto 85px;
+    grid-template-columns: 24px auto 100px;
     border-bottom: 1px solid var(--band-of-blades-sheets-border-secondary-color);
 
     &:first-child {
@@ -222,7 +222,7 @@
       justify-content: center;
       text-align: center;
 
-      font-size: 0.625rem;
+      font-size: 0.75rem;
       color: var(--band-of-blades-sheets-font-primary-color);
       background-color: var(--band-of-blades-sheets-background-tertiary-color);
     }

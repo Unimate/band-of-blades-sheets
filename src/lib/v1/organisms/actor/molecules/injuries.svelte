@@ -190,7 +190,7 @@
 
     .trauma-type {
       line-height: 1.75;
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       transition: font-weight 75ms ease;
     }
   }

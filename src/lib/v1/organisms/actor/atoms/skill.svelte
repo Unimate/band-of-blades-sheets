@@ -77,7 +77,7 @@
     border: none;
     background-color: transparent;
     color: var(--band-of-blades-sheets-font-primary-color);
-    font-size: 0.75rem;
+    font-size: 1rem;
     outline: none;
     box-shadow: unset;
 

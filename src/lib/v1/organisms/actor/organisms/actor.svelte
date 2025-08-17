@@ -97,7 +97,6 @@
 
 </script>
 
-
 <div class="main" ondrop={handleDrop} role="main">
   <div class="container">
     <div class="information">
@@ -178,9 +177,9 @@
     height: 100%;
 
     display: grid;
-    grid-template-columns: auto 220px;
+    grid-template-columns: auto 235px;
     gap: 0.5rem 1rem;
-    padding: 0.125rem 1rem 1rem;
+    padding: 1.5rem 1rem 1rem;
 
     &:after,
     &:before {

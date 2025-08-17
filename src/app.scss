@@ -1,5 +1,6 @@
 @use "lib/v1/styles/styles.scss";
 
+
 :root {
   --band-of-blades-sheets-background-primary-color: oklch(1 0 0);
   --band-of-blades-sheets-background-secondary-color: oklch(0 0 0);
@@ -60,6 +61,10 @@
           }
         }
 
+        .flags {
+          display: none;
+        }
+
         &.actor {
           min-width: 200px;
           min-height: 36px;
@@ -80,7 +85,7 @@
       &:not(.minimized) {
         &.role,
         &.actor {
-          min-width: 750px;
+          min-width: 800px;
           min-height: 780px;
         }
         &.engagement-dialog {
@@ -272,6 +277,103 @@
     .button--secondary {
       background-color: var(--band-of-blades-sheets-background-tertiary-color);
       color: var(--band-of-blades-sheets-background-secondary-color) !important;
+    }
+
+    .flags {
+      position: absolute;
+      top: 0;
+      left: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+
+    .flag {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      width: 30px;
+
+      transition: color 75ms ease-in-out;
+
+      input[type="radio"]:checked + i,
+      &:hover {
+        color: var(--band-of-blades-sheets-font-secondary-color) !important;
+      }
+
+      i {
+        transform: scale(1.25);
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        top: calc(50% + 2px);
+        left: 50%;
+        transform :translate(-50%, -50%);
+        clip-path: polygon(100% 0, 100% 100%, 50% 85%, 0 100%, 0 0);
+        z-index: 1;
+      }
+
+      .flag-substrate {
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        clip-path: polygon(100% 0, 100% 100%, 50% 85%, 0 100%, 0 0);
+        padding-top: 0.75rem;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      &:nth-child(1) {
+        height: 40px;
+      }
+      &:nth-child(2) {
+        height: 45px;
+      }
+      &:nth-child(3) {
+        height: 50px;
+      }
+
+
+      &.primary {
+        color: oklch(from var(--band-of-blades-sheets-primary-highlight-color) calc(l - 0.2) c h);
+
+        &:after {
+          background-color: oklch(from var(--band-of-blades-sheets-primary-highlight-color) calc(l - 0.2) c h);
+        }
+
+        .flag-substrate {
+          background-color: var(--band-of-blades-sheets-primary-highlight-color);
+        }
+      }
+
+      &.secondary {
+        color: oklch(from var(--band-of-blades-sheets-secondary-highlight-color) calc(l - 0.2) c h);
+
+        &:after {
+          background-color: oklch(from var(--band-of-blades-sheets-secondary-highlight-color) calc(l - 0.2) c h);
+        }
+
+        .flag-substrate {
+          background-color: var(--band-of-blades-sheets-secondary-highlight-color);
+        }
+      }
+
+      &.tertiary {
+        color: oklch(from var(--band-of-blades-sheets-tertiary-highlight-color) calc(l - 0.2) c h);
+
+        &:after {
+          background-color: oklch(from var(--band-of-blades-sheets-tertiary-highlight-color) calc(l - 0.2) c h);
+        }
+
+        .flag-substrate {
+          background-color: var(--band-of-blades-sheets-tertiary-highlight-color);
+        }
+      }
     }
   }
 }
