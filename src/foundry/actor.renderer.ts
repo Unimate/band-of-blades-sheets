@@ -175,7 +175,7 @@ export class BandOfBladesSheetsActor extends foundry.applications.sheets.ActorSh
       frame: true,
     },
     position: {
-      width: 750,
+      width: 800,
       height: 800,
     },
     submitOnClose: true,
