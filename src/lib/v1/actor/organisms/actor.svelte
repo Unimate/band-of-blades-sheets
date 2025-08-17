@@ -179,7 +179,7 @@
     display: grid;
     grid-template-columns: auto 235px;
     gap: 0.5rem 1rem;
-    padding: 0.125rem 1rem 1rem;
+    padding: 1.5rem 1rem 1rem;
 
     &:after,
     &:before {

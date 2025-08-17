@@ -14,8 +14,23 @@
 
 </script>
 
+<div class="flags">
+  <label class="flag primary">
+    <span class="flag-substrate">
+      <input type="radio" hidden bind:group={currentView} value="character">
+      <i class="ra ra-double-team"></i>
+    </span>
+  </label>
+  <label class="flag tertiary">
+    <span class="flag-substrate">
+      <input type="radio" hidden bind:group={currentView} value="notes">
+      <i class="ra ra-book"></i>
+    </span>
+  </label>
+</div>
+
+
 <main>
-  <Navigation changed={(value) => currentView = value}/>
 
   {#if currentView === 'character'}
     <Actor />

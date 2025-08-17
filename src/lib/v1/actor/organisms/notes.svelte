@@ -126,7 +126,7 @@
     grid-template-rows: auto 1fr;
     gap: 0.5rem;
     height: 100%;
-    padding: 0.125rem 1rem 1rem;
+    padding: 1.5rem 1rem 1rem;
     background-color: var(--band-of-blades-sheets-background-primary-color);
     z-index: 1;
   }
