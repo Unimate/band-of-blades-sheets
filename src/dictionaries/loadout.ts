@@ -35,12 +35,12 @@ const medic = {
   heavy: [{p: '(H) Lots of Tonics'}],
 };
 
-const medicUtilities = ['(U) Hand Weapon', '(U) Oil', '(U) Bandoier', '(U) Shield', '(U) Winter Clothing', '(U) Black Shot', '(U) Supplies', '(U) Repair Kit', '(U) Books & Scrolls', '(U) Reliquary'];
+const medicUtilities = ['(U) Hand Weapon', '(U) Oil', '(U) Alchemical Bandolier', '(U) Shield', '(U) Winter Clothing', '(U) Black Shot', '(U) Supplies', '(U) Repair Kit', '(U) Books and Scrolls', '(U) Reliquary'];
 
 const MEDIC_VOCABULARY = new Map<string, string>([
   ['(N) Ammo', 'ammo'],
   ['(N) Armor', 'armor'],
-  ['(U) Books & Scrolls', 'books_scrolls'],
+  ['(U) Books and Scrolls', 'books_scrolls'],
   ['(U) Black Shot', 'black_shot'],
   ['(L) Fine Medic Kit', 'fine_medic_kit'],
   ['(N) Fine Pistol', 'fine_pistol'],
@@ -56,7 +56,7 @@ const MEDIC_VOCABULARY = new Map<string, string>([
   ['(N) More Tonics', 'tonics'],
   ['(U) Winter Clothing', 'winter_clothing'],
   ['(H) Lots of Tonics', 'tonics'],
-  ['(U) Bandoier', 'bandolier'],
+  ['(U) Alchemical Bandolier', 'bandolier'],
 ]);
 
 const officer = {
@@ -124,7 +124,7 @@ const sniper = {
   heavy: [{p: '(H) 2 Fine Pistols', a: '(H) Fine Long Rifle'}],
 };
 
-const sniperUtilities = ['(U) Hand Weapon', '(L) Black Shot', '(L) Black Shot', '(U) Pistol', '(U) Ammo', '(U) Oil', '(U) Supplies', '(U) Winter Clothing', '(U) Soldier\'s Kit', '(U) Reliquary'];
+const sniperUtilities = ['(U) Hand Weapon', '(U) Black Shot', '(U) Pistol', '(U) Ammo', '(U) Oil', '(U) Supplies', '(U) Winter Clothing', '(U) Soldier\'s Kit', '(U) Reliquary'];
 
 const SNIPER_VOCABULARY = new Map<string, string>([
   ['(L) Ammo', 'ammo'],
@@ -137,6 +137,7 @@ const SNIPER_VOCABULARY = new Map<string, string>([
   ['(U) Oil', 'oil'],
   ['(U) Pistol', 'pistol'],
   ['(U) Ammo', 'ammo'],
+  ['(U) Black Shot', 'black_shot'],
   ['(U) Reliquary', 'reliquary'],
   ['(U) Supplies', 'supplies'],
   ['(U) Soldier\'s Kit', 'soldier_kit'],

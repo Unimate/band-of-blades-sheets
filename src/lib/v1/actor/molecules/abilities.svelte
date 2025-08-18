@@ -108,7 +108,7 @@
       pointer-events: none;
       opacity: 0;
       position: absolute;
-      top: 0;
+      bottom: 0;
       left: -220px;
       width: 200px;
       height: auto;
