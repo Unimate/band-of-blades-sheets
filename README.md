@@ -27,3 +27,7 @@ You can also install Band of Blades manually via the `module.json` URL:
 | ⬜ The Legion Roles   |
 | ⬜ Chosen / Broken    |
 | ⬜ Enemies            |
+
+<img width="1209" height="780" alt="demo" src="https://github.com/user-attachments/assets/50b380b2-fd2e-414c-9a73-b64642b5c054" />
+
+   
