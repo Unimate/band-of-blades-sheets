@@ -58,10 +58,10 @@
 
   <div class="items-list">
     {#each context.load.items as item, index}
-      <Item item={item} index={index} />
+      <Item extra="main" item={item} index={index} />
     {/each}
     {#each context.load.selected as item, index}
-      <Item item={item} index={index} />
+      <Item extra="selectable" item={item} index={index} />
     {/each}
   </div>
 </div>
