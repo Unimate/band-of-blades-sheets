@@ -498,7 +498,7 @@
         },
         "chemist": {
           "name": "Chemist",
-          "description": "You have training in <b>Orite alchemical medicine</b>. You may equip an <b>Alchemical Bandolier</b> on each mission."
+          "description": "You have training in <b>Orite alchemical medicine</b>. You may equip an <b>Alchemical Bandolier</b> on each mission.<br>Orite Medical Alchemy (see chemist ability)<ul><li><b>Owlsight Oil</b>: See in the dark (24h). Light sensitive.</li><li><b>Chembalm</b>: Neutralizes most poisons and toxins.</li><li><b>Deep</b>: Lets you hold your breath for a scene.</li><li><b>Rage Venom</b>: Gain physical potency for a scene. You must make a resolve resist to avoid attacking friend and foe indiscriminately. Addictive.</li></ul>"
         },
         "moral_support": {
           "name": "Moral Support",

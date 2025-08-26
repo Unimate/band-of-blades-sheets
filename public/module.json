@@ -13,6 +13,18 @@
     "verified": "13",
     "maximum": "13"
   },
+  "relationships": {
+    "systems": [
+      {
+        "id": "band-of-blades",
+        "compatibility": {
+          "minimum": "3.0.1",
+          "verified": "3.0.2",
+          "maximum": "3.0.x"
+        }
+      }
+    ]
+  },
   "esmodules": ["./band-of-blades-sheets.js"],
   "styles": ["./band-of-blades-sheets.css"],
   "languages": [

@@ -93,42 +93,45 @@
               {#each group.abilities as ability, index}
                 <div class="item item-multiplied">
                   <input
-                    type="checkbox"
-                    hidden
-                    checked={selectedAbilities.includes(`${ability}-0`)}
-                    id={'item-' + ability + '-' + index + '-0'}
-                    onclick={() => selectAbility(`${ability}-0`)}
+                      type="checkbox"
+                      hidden
+                      checked={selectedAbilities.includes(`${ability}-0`)}
+                      id={'item-' + ability + '-' + index + '-0'}
+                      onclick={() => selectAbility(`${ability}-0`)}
                   />
                   <label for={'item-' + ability + '-' + index + '-0'}></label>
                   <input
-                    type="checkbox"
-                    hidden
-                    checked={selectedAbilities.includes(`${ability}-1`)}
-                    id={'item-' + ability + '-' + index + '-1'}
-                    onclick={() => selectAbility(`${ability}-1`)}
+                      type="checkbox"
+                      hidden
+                      checked={selectedAbilities.includes(`${ability}-1`)}
+                      id={'item-' + ability + '-' + index + '-1'}
+                      onclick={() => selectAbility(`${ability}-1`)}
                   />
                   <label for={'item-' + ability + '-' + index + '-1'}></label>
                   <span>
                     <span class="item-name">{foundryAdapter.localize(`abilities.${group.name}.${ability}.name`)}</span>
-                    <span class="item-description">{@html foundryAdapter.localize(`abilities.${group.name}.${ability}.description`)}</span>
+                    <span class="item-description">
+                      {@html foundryAdapter.localize(`abilities.${group.name}.${ability}.description`)}
+                    </span>
                   </span>
                 </div>
               {/each}
-              {:else}
+            {:else}
               {#each group.abilities as ability, index}
                 <div class="item">
                   <input
-                    type="checkbox"
-                    hidden
-                    checked={selectedAbilities.includes(ability) || (specialization === SpecialistEnum.Medic && ability === 'attache')}
-                    id={'item-' + ability + '-' + index}
-                    onclick={() => selectAbility(ability)}
-                    disabled={(specialization === SpecialistEnum.Medic && ability === 'attache')}
+                      type="checkbox"
+                      hidden
+                      checked={selectedAbilities.includes(ability) || (specialization === SpecialistEnum.Medic && ability === 'attache')}
+                      id={'item-' + ability + '-' + index}
+                      onclick={() => selectAbility(ability)}
+                      disabled={(specialization === SpecialistEnum.Medic && ability === 'attache')}
                   />
                   <label for={'item-' + ability + '-' + index}></label>
                   <span>
                     <span class="item-name">{foundryAdapter.localize(`abilities.${group.name}.${ability}.name`)}</span>
-                    <span class="item-description">{@html foundryAdapter.localize(`abilities.${group.name}.${ability}.description`)}</span>
+                    <span
+                        class="item-description">{@html foundryAdapter.localize(`abilities.${group.name}.${ability}.description`)}</span>
                   </span>
                 </div>
               {/each}

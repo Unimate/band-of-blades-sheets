@@ -4,7 +4,7 @@
   import { type IActor } from "src/types/actor.type";
   import { type IActions } from "src/types/actions.type";
 
-  const { item = $bindable(), index, selection = false } = $props();
+  const { item = $bindable(), index, selection = false, extra = "common" } = $props();
   let context = $derived(getActorSheetContext() as IActor & IActions);
 </script>
 
@@ -45,12 +45,12 @@
         <input
           type="checkbox"
           hidden
-          id={context._id + '-usage-' + usage + '-' + item.primary.label}
+          id={context._id + '-usage-' + usage + '-' + item.primary.label + '-' + extra}
           name="usages-input"
           value={ephemeral}
           disabled={selection}
         />
-        <label class="usages-point" for={context._id + '-usage-' + usage + '-' + item.primary.label}></label>
+        <label class="usages-point" for={context._id + '-usage-' + usage + '-' + item.primary.label  + '-' + extra}></label>
       {/each}
     </div>
   {/if}

@@ -332,7 +332,7 @@ export const disassembleItems = async (items: ILoadItem[], specialization: Speci
 
   for (let item of flat) {
     for (const [key, value] of vocabulary.entries()) {
-      if (value === item) {
+      if (key.startsWith('(U)') && value === item) {
         keys.push(key);
         break;
       }
