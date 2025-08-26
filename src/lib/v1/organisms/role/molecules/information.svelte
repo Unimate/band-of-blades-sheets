@@ -39,8 +39,8 @@
   <div class="heritage-container">
     <button class="heritage" onclick={() => callSelect('heritage')}>
       {#if heritage !== null}
-        {foundryAdapter.localize(`heritage.${heritage}.name`)}
-        <span class="traits">({reputation})</span>
+        <span class="heritage-title">{foundryAdapter.localize(`heritage.${heritage}.name`)}</span>
+        <span class="traits-title">({reputation})</span>
       {:else}
         {foundryAdapter.localize(`heritage.select`)}
       {/if}
@@ -145,6 +145,12 @@
 
   .squad,
   .heritage {
+    font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
+    padding-bottom: 2px;
+    font-size: 0.875rem;
+  }
+
+  .heritage-title {
     font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
     padding-bottom: 2px;
     font-size: 0.875rem;

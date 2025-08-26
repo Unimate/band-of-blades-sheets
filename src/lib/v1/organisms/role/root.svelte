@@ -13,7 +13,31 @@
   const rollEngagements = () => {
     context.actions.rollEngagements();
   }
+
+  let tab: 'squads' | 'specialists' | 'notes' = $state('squads');
 </script>
+
+<div class="flags">
+  <label class="flag primary">
+    <span class="flag-substrate">
+      <input type="radio" hidden bind:group={tab} value="squads">
+      <i class="ra ra-double-team"></i>
+    </span>
+  </label>
+  <label class="flag secondary">
+    <span class="flag-substrate">
+      <input type="radio" hidden bind:group={tab} value="specialists">
+      <i class="ra ra-large-hammer"></i>
+    </span>
+  </label>
+
+  <label class="flag tertiary">
+    <span class="flag-substrate">
+      <input type="radio" hidden bind:group={tab} value="notes">
+      <i class="ra ra-book"></i>
+    </span>
+  </label>
+</div>
 
 <main>
   <div class="information">
@@ -32,11 +56,12 @@
       {/if}
     </Information>
   </div>
-  <Marshal />
+  <Marshal tab={tab} />
 </main>
 
 <style lang="scss">
   @use '../../../../app';
+  @use '../../styles/tabs';
 
   .information {
     display: grid;
@@ -53,6 +78,8 @@
     width: 100%;
     height: 800px;
     overflow-y: auto;
+
+    padding-top: 1.5rem;
     background-color: var(--band-of-blades-sheets-background-primary-color);
 
     border-radius: 0 0 8px 8px;
