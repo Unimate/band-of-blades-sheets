@@ -79,6 +79,7 @@
               type="text"
               class="harm-input"
               value={context.harm.medium.descriptions[i]}
+              onblur={(e) => changeHarmReason('medium', i, e)}
             >
           {/each}
 
@@ -101,6 +102,7 @@
               type="text"
               class="harm-input"
               value={context.harm.light.descriptions[i]}
+              onblur={(e) => changeHarmReason('light', i, e)}
             >
           {/each}
         </div>
