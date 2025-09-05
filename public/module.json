@@ -2,7 +2,7 @@
   "id": "band-of-blades-sheets",
   "title": "Band of Blades Sheets",
   "description": "Game sheets for Band of Blades inspired by official character sheets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Unimate",
@@ -40,7 +40,7 @@
     }
   ],
   "url": "https://github.com/unimate/band-of-blades-sheets",
-  "download": "https://github.com/unimate/band-of-blades-sheets/releases/download/v1.0/module.zip",
+  "download": "https://github.com/unimate/band-of-blades-sheets/releases/download/v1.0.1/module.zip",
   "manifest": "https://github.com/unimate/band-of-blades-sheets/releases/latest/download/module.json",
   "readme": "https://github.com/unimate/band-of-blades-sheets/blob/main/README.md",
   "bugs": "https://github.com/unimate/band-of-blades-sheets/issues",
