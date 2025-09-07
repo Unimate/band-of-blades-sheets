@@ -182,7 +182,7 @@
   <div class="roll-dialog-section">
     <div class="roll-dialog-section-title">{foundryAdapter.localize('dialog.roll.modifier.title')}</div>
     <div class="roll-dialog-section-description">
-      <select class="roll-dialog-select" bind:value={modifier}>
+      <select class="select" bind:value={modifier}>
         <option value={-3}>-3d6</option>
         <option value={-2}>-2d6</option>
         <option value={-1}>-1d6</option>
@@ -304,60 +304,6 @@
   .roll-dialog-section-description {
     justify-self: flex-start;
     font-weight: bold;
-  }
-
-  .roll-dialog-select {
-    width: 80px;
-    background-color: var(--band-of-blades-sheets-background-primary-color);
-    border: thin solid var(--band-of-blades-sheets-border-primary-color);
-    border-radius: 4px;
-    display: inline-block;
-    font: inherit;
-    padding: 0.25rem 2.75rem 0.25rem 0.5rem;
-    text-align: end;
-
-    color: var(--band-of-blades-sheets-font-primary-color);
-
-    margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-
-
-    background-image: linear-gradient(45deg, transparent 50%, var(--band-of-blades-sheets-border-primary-color) 50%),
-    linear-gradient(135deg, var(--band-of-blades-sheets-border-primary-color) 50%, transparent 50%),
-    linear-gradient(to right, var(--band-of-blades-sheets-border-primary-color), var(--band-of-blades-sheets-border-primary-color));
-    background-position: calc(100% - 20px) 13px,
-    calc(100% - 15px) 13px,
-    calc(100% - 34px) 5px;
-    background-size: 5px 5px,
-    5px 5px,
-    1px 1.5em;
-    background-repeat: no-repeat;
-
-
-    &:focus {
-      background-image: linear-gradient(45deg, var(--band-of-blades-sheets-primary-highlight-color) 50%, transparent 50%),
-      linear-gradient(135deg, transparent 50%, var(--band-of-blades-sheets-primary-highlight-color) 50%),
-      linear-gradient(to right, var(--band-of-blades-sheets-border-primary-color), var(--band-of-blades-sheets-border-primary-color));
-      background-position: calc(100% - 15px) 13px,
-      calc(100% - 20px) 13px,
-      calc(100% - 34px) 5px;
-      background-size: 5px 5px,
-      5px 5px,
-      1px 1.5em;
-      background-repeat: no-repeat;
-      border-color: var(--band-of-blades-sheets-border-primary-color);
-      outline: 0;
-    }
-
-
-    &:-moz-focusring {
-      color: transparent;
-      text-shadow: 0 0 0 #000;
-    }
   }
 
   .roll-dialog-control {

@@ -2,10 +2,10 @@ import { mount, unmount } from "svelte";
 import RoleSheet from '../lib/v1/organisms/role/root.svelte';
 import { CoarseReactivityProvider } from "../utils/reactivity/reactivity.svelte";
 import { CONSTANTS } from "../constants";
-import { mapMarshal, mapRole } from "../mappers/role.mapper";
+import { mapMarshal, mapQuartermaster, mapRole } from "../mappers/role.mapper";
 import { REMAPPED_SQUADS } from "../dictionaries/squads";
 import { foundryAdapter } from "./foundry.adapter";
-import { RoleSpecialization } from "../types/roles.type";
+import { type IProject, RoleSpecialization } from "../types/roles.type";
 import { BandOfBladesSheetsEngagementsDialog } from "./dialog.renderer";
 
 
@@ -76,6 +76,20 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
         role: this.#context.data,
       }).render(true);
     },
+
+    updateProject: async (project: IProject, index: number) => {
+      const update = {
+        value: project.current > project.steps ? 0 : project.current,
+        color: project.color,
+        description: project.description,
+        name: project.name,
+        type: project.steps,
+      }
+      const key = `system.resources.projects.clock${index + 1}`;
+      this.actor.update({ [key]: update });
+      console.log(this.actor);
+
+    }
   }
 
   static DEFAULT_OPTIONS = {
@@ -106,6 +120,9 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
         case RoleSpecialization.Marshal: {
           specialization = await mapMarshal(this.actor);
           break;
+        }
+        case RoleSpecialization.Quartermaster: {
+          specialization = await mapQuartermaster(this.actor);
         }
       }
     }

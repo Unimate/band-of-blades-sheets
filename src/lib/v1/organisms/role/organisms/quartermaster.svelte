@@ -1,12 +1,14 @@
 <script lang="ts">
-  import Squads from "../molecules/marshal/squads.svelte";
-  import Specialists from "../molecules/marshal/specialists.svelte";
+  import Personnel from "../molecules/quartermaster/personnel.svelte";
+  import Supply from "../molecules/quartermaster/supply.svelte";
+  import Materiel from "../molecules/quartermaster/materiel.svelte";
+  import Projects from "../molecules/quartermaster/projects.svelte";
   import Notes from "src/lib/v1/molecules/notes.svelte";
-  import Morale from "../molecules/marshal/morale.svelte";
   import { getRoleSheetContext } from "src/lib/v1/organisms/role/role.context";
-  import { type IMarshalActions, type IRole } from "src/types/roles.type";
+  import type { IMarshalActions, IRole } from "src/types/roles.type";
 
   const context = $derived(getRoleSheetContext() as IRole & IMarshalActions);
+
   const { tab } = $props();
 
   let enrichedPromise = $derived(
@@ -15,9 +17,14 @@
 </script>
 
 <div class="main">
-  <Morale />
-  {#if tab === 0}<Specialists />{/if}
-  {#if tab === 1}<Squads />{/if}
+  {#if tab === 0}
+    <Supply/>
+    <Personnel/>
+    <Materiel/>
+  {/if}
+  {#if tab === 1}
+    <Projects/>
+  {/if}
   {#if tab === 2}
     {#await enrichedPromise then enriched}
       <Notes

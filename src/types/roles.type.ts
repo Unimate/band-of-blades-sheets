@@ -16,7 +16,6 @@ export interface ISquadMate {
   };
 }
 
-
 export enum RoleHeritage {
   Bartans = 'bartan',
   Orites = 'orite',
@@ -185,12 +184,48 @@ export interface IRole {
   notes: string;
 }
 
+export interface IProject {
+  steps: number;
+  description: string;
+  name: string;
+  current: number;
+  color: string;
+}
+
+interface IPersonnel<T = void> {
+  name: string;
+  image: string;
+}
+
+export type PersonnelType<T> = IPersonnel & T;
+
+export interface IAlchemist {
+  injuries: {
+    corruption: { current: number, max: number };
+  }
+}
+
+export interface IMercy {
+  conditions: {
+    trauma: { wounded: boolean };
+  }
+}
+
 export interface IMarshal {
   morale: number;
   legionnaires: Record<string, ISquadMate[]>;
   specialists: Record<string, ISquadMate[]>;
   dictionaries: {
     squads: { name: string; image: string; description: string; }[];
+  }
+}
+
+export interface IQuartermaster {
+  projects: IProject[];
+  personnel: {
+    laborers: PersonnelType<{}>[],
+    alchemists: PersonnelType<IAlchemist>[],
+    mercy: PersonnelType<IMercy>[]
   }
 }
 
@@ -201,5 +236,11 @@ export interface IMarshalActions {
     updateMorale: (value: number) => Promise<void>;
     editNotes: () => Promise<void>;
     rollEngagements: () => Promise<void>;
+  }
+}
+
+export interface IQuartermasterActions {
+  actions: {
+    updateProject: (project: IProject, index: number) => Promise<void>;
   }
 }

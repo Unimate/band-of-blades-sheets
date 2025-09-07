@@ -1,25 +1,29 @@
 import {
-  type IActor,
-  type ISkill, type ISkills,
-  LegionnaireEnum, SkillCategoryLabel, SkillLabel,
+  LegionnaireEnum,
   SpecialistEnum,
   type Specialization,
   type Trauma
 } from "../types/actor.type";
 import { SQUADS } from "../dictionaries/squads";
 import {
+  type IAlchemist,
   type IMarshal,
+  type IMercy,
+  type IProject,
+  type IQuartermaster,
   type IRole,
   type ISquadMate,
-  RoleHeritage, type RoleLook, type RolePersonality,
+  type PersonnelType,
+  RoleHeritage,
+  type RoleLook,
+  type RolePersonality,
   type RoleReputation,
   RoleSpecialization
 } from "../types/roles.type";
 import { ROLES } from "../dictionaries/role";
 import { requestSquads } from "./actor.mapper";
-import { CHOSEN, GROUP, HERITAGE, PERSONAL } from "../dictionaries/bonuses";
+import { CHOSEN } from "../dictionaries/bonuses";
 import type { IBonus } from "../types/dices.type";
-import { ABILITIES } from "../dictionaries/abilities";
 
 export const mapRole = (data: any): IRole => {
   const { system } = data;
@@ -98,6 +102,15 @@ export const mapMarshal = async (data: any): Promise<IMarshal> => {
   }
 }
 
+export const mapQuartermaster = async (data: any): Promise<IQuartermaster> => {
+  console.log(data);
+
+  return {
+    projects: mapProjects(data),
+    personnel: mapPersonnel(data)
+  };
+}
+
 const getActorsBySpecialization = (game: any, specializations: Specialization[]) => {
   return game.actors.filter((actor: any) => {
     if (actor.type !== 'character') return false;
@@ -147,7 +160,7 @@ const mapSquadMate = (data: any): ISquadMate => {
   return actor;
 }
 
-export const getLegionnairesBySquads = (game: any) => {
+const getLegionnairesBySquads = (game: any) => {
   const legionnaires = getActorsBySpecialization(game, Object.values(LegionnaireEnum));
   const squads: Record<string, any[]> = {};
 
@@ -161,7 +174,7 @@ export const getLegionnairesBySquads = (game: any) => {
   return squads;
 }
 
-export const getSpecialistsBySpeciality = (game: any) => {
+const getSpecialistsBySpeciality = (game: any) => {
   const specialists = getActorsBySpecialization(game, Object.values(SpecialistEnum));
   const specialities: Record<string, any[]> = {};
 
@@ -201,7 +214,12 @@ export const calculateMarshalBonuses = () => {
       }
     );
     if (strategists.length > 0) {
-      groupBonuses.set('strategist', { key: 'officer', name: 'specialization', ability: 'strategist', bonus: { bonus: 1 } });
+      groupBonuses.set('strategist', {
+        key: 'officer',
+        name: 'specialization',
+        ability: 'strategist',
+        bonus: { bonus: 1 }
+      });
     }
   });
 
@@ -216,4 +234,67 @@ export const calculateMarshalBonuses = () => {
 
 
   return { group: groupBonuses };
+}
+
+const mapProjects = (data: any): IProject[] => {
+  return Object.keys(data.system.resources.projects).map((key: string) => {
+    const project = data.system.resources.projects[key];
+    return {
+      steps: Number(project.type),
+      description: project.description,
+      name: project.name,
+      current: Number(project.value),
+      color: project.color,
+    }
+  });
+}
+
+const mapPersonnel = (data: any): {
+  laborers: PersonnelType<{}>[],
+  alchemists: PersonnelType<IAlchemist>[],
+  mercy: PersonnelType<IMercy>[]
+} => {
+  const personnel: {
+    laborers: PersonnelType<{}>[],
+    alchemists: PersonnelType<IAlchemist>[],
+    mercy: PersonnelType<IMercy>[]
+  } = {
+    laborers: [],
+    alchemists: [],
+    mercy: []
+  };
+
+  for (const item of data.items) {
+    if (item.type === 'personnel') {
+      const flag = data.flags['band-of-blades'].items[item._id];
+      const personal = {
+        name: item.name,
+        image: item.image,
+      }
+
+      if (item.name === 'Alchemist') {
+        personnel.alchemists.push({
+          ...personal,
+          injuries: {
+            corruption: { current: Number(flag.usages || 0), max: Number(flag.usagesMax || 8) },
+          },
+        });
+      }
+
+      if (item.name === 'Mercy') {
+        personnel.mercy.push({
+          ...personal,
+          conditions: {
+            trauma: { wounded: flag.wounded },
+          }
+        })
+      }
+
+      if (item.name === 'Laborer') {
+        personnel.laborers.push(personal);
+      }
+    }
+  }
+
+  return personnel;
 }

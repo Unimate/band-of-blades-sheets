@@ -1,12 +1,12 @@
 <script lang="ts">
   import Indicators from "src/lib/v1/atoms/indicators.svelte";
   import { foundryAdapter } from "src/foundry/foundry.adapter";
-  import { getMarshalSheetContext } from "src/lib/v1/organisms/role/role.context";
+  import { getRoleSheetContext } from "src/lib/v1/organisms/role/role.context";
   import type { IDictionary } from "src/types/dictionaries.type";
   import type { IMarshal, IMarshalActions } from "src/types/roles.type";
   import { SpecialistEnum } from "src/types/actor.type";
 
-  const context = $derived(getMarshalSheetContext() as IDictionary & IMarshal & IMarshalActions);
+  const context = $derived(getRoleSheetContext() as IDictionary & IMarshal & IMarshalActions);
 
   const specialties = Object.values(SpecialistEnum);
 

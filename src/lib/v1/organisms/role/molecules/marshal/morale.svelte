@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { getMarshalSheetContext } from "src/lib/v1/organisms/role/role.context";
+  import { getRoleSheetContext } from "src/lib/v1/organisms/role/role.context";
   import type { IMarshal, IMarshalActions, IRole } from "src/types/roles.type";
   import { foundryAdapter } from "src/foundry/foundry.adapter";
 
-  const context = $derived(getMarshalSheetContext() as IRole & IMarshal & IMarshalActions);
+  const context = $derived(getRoleSheetContext() as IRole & IMarshal & IMarshalActions);
 
   const updateMorale = (value: number) => {
     context.actions.updateMorale(value);

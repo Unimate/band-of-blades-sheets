@@ -1,9 +1,18 @@
-<script>
+<script lang="ts">
   const { size, current, onChange } = $props();
+
+  const change = (e: PointerEvent) => {
+    if (e.button === 0) {
+      onChange(current + 1);
+    }
+    if (e.button === 2) {
+      onChange(current - 1);
+    }
+  }
 </script>
 
 <div class="wrapper">
-  <button class="clock" style="--size: {size}; --filled: {current}" onclick={() => onChange()}>
+  <button class="clock" style="--size: {size}; --filled: {current}" onclick={change} oncontextmenu={change}>
     {#each { length: size }, index}
       <div class="beam" style="--index: {index}"></div>
     {/each}

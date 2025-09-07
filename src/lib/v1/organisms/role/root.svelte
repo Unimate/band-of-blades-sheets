@@ -1,42 +1,39 @@
 <script lang="ts">
   import Information from "./molecules/information.svelte";
   import Marshal from "./organisms/marshal.svelte";
-  import { getMarshalSheetContext } from "src/lib/v1/organisms/role/role.context";
+  import Quartermaster from "./organisms/quartermaster.svelte";
+  import { getRoleSheetContext } from "src/lib/v1/organisms/role/role.context";
   import { type IMarshalActions, type IRole, RoleSpecialization } from "src/types/roles.type";
   import { foundryAdapter } from "src/foundry/foundry.adapter";
-  const context = $derived(getMarshalSheetContext() as IRole & IMarshalActions);
+  import { TABS } from "src/dictionaries/tabs";
+
+  const context = $derived(getRoleSheetContext() as IRole & IMarshalActions);
 
   const openSelector = (e: string) => {
     console.log(e);
   }
 
+  const tabs = $derived.by(() => {
+    if (context.character.specialization === null) return [];
+    return (TABS[context.character.specialization] as { priority: string; icon: string; }[]) ?? [];
+  });
+
   const rollEngagements = () => {
     context.actions.rollEngagements();
   }
 
-  let tab: 'squads' | 'specialists' | 'notes' = $state('squads');
+  let tab: number = $state(0);
 </script>
 
 <div class="flags">
-  <label class="flag primary">
+  {#each tabs as element, index}
+    <label class={["flag", element.priority]}>
     <span class="flag-substrate">
-      <input type="radio" hidden bind:group={tab} value="squads">
-      <i class="ra ra-double-team"></i>
+      <input type="radio" hidden bind:group={tab} value={index}>
+      <i class={["ra", element.icon]}></i>
     </span>
-  </label>
-  <label class="flag secondary">
-    <span class="flag-substrate">
-      <input type="radio" hidden bind:group={tab} value="specialists">
-      <i class="ra ra-large-hammer"></i>
-    </span>
-  </label>
-
-  <label class="flag tertiary">
-    <span class="flag-substrate">
-      <input type="radio" hidden bind:group={tab} value="notes">
-      <i class="ra ra-book"></i>
-    </span>
-  </label>
+    </label>
+  {/each}
 </div>
 
 <main>
@@ -56,7 +53,12 @@
       {/if}
     </Information>
   </div>
-  <Marshal tab={tab} />
+  {#if context.character.specialization === RoleSpecialization.Marshal}
+    <Marshal tab={tab} />
+  {/if}
+  {#if context.character.specialization === RoleSpecialization.Quartermaster}
+    <Quartermaster tab={tab} />
+  {/if}
 </main>
 
 <style lang="scss">

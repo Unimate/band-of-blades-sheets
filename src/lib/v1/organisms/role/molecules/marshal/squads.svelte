@@ -1,11 +1,11 @@
 <script lang="ts">
   import Indicators from "src/lib/v1/atoms/indicators.svelte";
   import { foundryAdapter } from "src/foundry/foundry.adapter";
-  import { getMarshalSheetContext } from "src/lib/v1/organisms/role/role.context";
+  import { getRoleSheetContext } from "src/lib/v1/organisms/role/role.context";
   import type { IDictionary } from "src/types/dictionaries.type";
   import type { IMarshal, IMarshalActions } from "src/types/roles.type";
 
-  const context = $derived(getMarshalSheetContext() as IDictionary & IMarshal & IMarshalActions);
+  const context = $derived(getRoleSheetContext() as IDictionary & IMarshal & IMarshalActions);
 
   const staffTheSquad = (name: string) => {
     const squad = context.legionnaires[name];
@@ -150,6 +150,8 @@
   .squad-list {
     padding: 0;
     margin: 0;
+    display: grid;
+    gap: 0.25rem;
   }
 
   .squad-mate,
@@ -189,6 +191,7 @@
     padding: 0.5rem;
     background-color: var(--band-of-blades-sheets-background-tertiary-color);
     color: var(--band-of-blades-sheets-font-primary-color);
+    margin: 0;
 
     border-radius: 4px;
 

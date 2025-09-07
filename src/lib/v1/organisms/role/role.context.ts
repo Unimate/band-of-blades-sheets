@@ -8,6 +8,6 @@ export function getSheetContext<TContext = any>(): TContext {
   ).data;
 }
 
-export function getMarshalSheetContext(): any {
+export function getRoleSheetContext(): any {
   return getSheetContext();
 }

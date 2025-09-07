@@ -20,10 +20,10 @@ export interface IActions {
     selectHeritage (heritage: Heritage, trait: Trait): Promise<void>;
     selectSquad (squad: string): Promise<void>;
     updateLoad (load: 'Light' | 'Normal' | 'Heavy'): Promise<void>;
-    updateAbilityProgress (): Promise<void>;
+    updateAbilityProgress (current: number): Promise<void>;
     updateInjury (type: 'stress' | 'corruption', update: number): Promise<void>;
     updateCondition (type: 'trauma' | 'blight', update: Trauma | Condition): Promise<void>;
-    updateSkillProgress (limit: number, label: SkillCategoryLabel): Promise<void>;
+    updateSkillProgress (limit: number, label: SkillCategoryLabel, current: number): Promise<void>;
     updateSkill (label: SkillCategoryLabel, skill: SkillLabel, value: number): Promise<void>;
     updateSafety (safety: keyof ISafety): Promise<void>;
     updateHealingSteps (type: 'heavy' | 'medium' | 'light', step: number): Promise<void>;

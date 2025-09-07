@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Clock from '../atoms/clock.svelte';
+  import Clock from '../../../atoms/clock.svelte';
   import Skill from '../atoms/skill.svelte'
   import { foundryAdapter } from 'src/foundry/foundry.adapter';
   import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
@@ -57,7 +57,7 @@
       {/if}
     </div>
     <div class="skill-progress">
-      <Clock size={6} current={entity.progress} onChange={() => context.actions.updateSkillProgress(6, entity.label)} />
+      <Clock size={6} current={entity.progress} onChange={(value) => context.actions.updateSkillProgress(6, entity.label, value)} />
     </div>
   </div>
   <div class="progress-circle"></div>

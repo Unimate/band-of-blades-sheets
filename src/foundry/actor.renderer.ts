@@ -97,15 +97,13 @@ export class BandOfBladesSheetsActor extends foundry.applications.sheets.ActorSh
       await this.actor.update({ [`system.${type}.list.${update}`]: !current });
       this.render();
     },
-    updateSkillProgress: async (limit: number, label: SkillCategoryLabel) => {
-      const current = Number(this.actor.system.attributes[label].exp);
-      await this.actor.update({ [`system.attributes.${label}.exp`]: current === limit ? 0 : current + 1 })
+    updateSkillProgress: async (limit: number, label: SkillCategoryLabel, current: number) => {
+      await this.actor.update({ [`system.attributes.${label}.exp`]: current > limit ? 0 : current })
       this.render();
     },
-    updateAbilityProgress: async () => {
-      const current = Number(this.actor.system.experience) + 1;
-      const max = this.actor.system.experienceMax || 8;
-      await this.actor.update({ [`system.experience`]: current > max ? 0 : current });
+    updateAbilityProgress: async (current: number) => {
+      const limit = this.actor.system.experienceMax || 8;
+      await this.actor.update({ [`system.experience`]: current > limit ? 0 : current });
     },
     updateSkill: async (label: SkillCategoryLabel, skill: SkillLabel, value: number) => {
       await this.actor.update({ [`system.attributes.${label}.skills.${skill}.value`]: value });
