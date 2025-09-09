@@ -423,9 +423,30 @@
       },
       "Quartermaster": {
         "name": "Интендант",
-        "action": "<b>Channels</b> is an action that Officers specialize in. Unlike most actions it’s not rolled, but its rating determines its uses per mission. You may spend <b>channels</b> uses to <b>acquire an asset</b> for your squad in a <b>flashback</b>. Roll <b>sway</b> to determine quality. You can spend additional <b>uses</b> to improve the quality as per <b>supply</b> rules. Such assets are temporary or \"on loan\" and will go away when the mission ends.",
-        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through enforcing discipline or strategic planning.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
-        "startup": "<b>Requirements:</b> <i>Discipline:</i> <b>1</b>, <i>Sway:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Channels:</i> <b>1</b>."
+        "supplies": {
+          "name": "Припасы",
+          "description": "<b>Припасы</b>: пополняются за счёт наград за успешные операции, исчезают в качестве расплаты за провалы операций. Если нужно потратить <b>припасы</b>, а они на нуле, снизь <b>боевой дух</b> на 1. Можно использовать, чтобы увеличить количество <b>действий обеспечения</b> или <b>поддержать</b> их. Когда командир отправляет Легион на  передислокацию, можно унести на  себе припасы только на 3 использования, для остального нужны телеги (один к одному)."
+        },
+        "personnel": {
+          "name": "Внештатный персонал",
+          "Alchemist": {
+            "name": "Алхимик",
+            "plural": "Алхимики",
+            "corruption": "Скверна"
+          },
+          "Mercy": {
+            "name": "Милосердец",
+            "plural": "Милосердцы",
+            "wounded": "Ранен"
+          },
+          "Laborer": {
+            "name": "Рабочий",
+            "plural": "Рабочие"
+          }
+        },
+        "materiel": {
+          "name": "Ресурсы"
+        }
       },
       "Lorekeeper": {
         "name": "Летописец",
@@ -859,6 +880,9 @@
           "negative": "<b>Натиск</b> выше 2?"
         }
       }
+    },
+    "actions": {
+      "add": "Добавить"
     }
   }
 }

@@ -193,6 +193,7 @@ export interface IProject {
 }
 
 interface IPersonnel<T = void> {
+  _id: string;
   name: string;
   image: string;
 }
@@ -242,5 +243,8 @@ export interface IMarshalActions {
 export interface IQuartermasterActions {
   actions: {
     updateProject: (project: IProject, index: number) => Promise<void>;
+    addPersonnel: (type: 'Alchemist' | 'Mercy' | 'Laborer') => Promise<void>;
+    updatePersonnel: (personnel: IPersonnel, update: Record<string, number | boolean>) => Promise<void>;
+    removePersonnel: (_id: string) => Promise<void>;
   }
 }

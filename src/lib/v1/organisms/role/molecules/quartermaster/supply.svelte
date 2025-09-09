@@ -11,11 +11,7 @@
 
   <div class="description">
     <span>
-      supply: Gain from mission rewards. Lose from mission penalties. If you
-      lose supply and have none, lose 1 morale instead. Spend supply to boost
-      campaign actions and to take additional campaign actions. You can keep a
-      max of 3 supply +1 per Supply Cart (see Materiel below) when advancing
-      <!--{@html foundryAdapter.localize('quartermaster.supplies.description')}-->
+      {@html foundryAdapter.localize('role.Quartermaster.supplies.description')}
     </span>
   </div>
 </div>
@@ -46,7 +42,7 @@
   .description {
     font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
     color: var(--band-of-blades-sheets-font-primary-color);
-    font-size: 1.125rem;
+    font-size: 1rem;
   }
 
 

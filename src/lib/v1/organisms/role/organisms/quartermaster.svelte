@@ -46,7 +46,7 @@
     height: 100%;
 
     display: grid;
-    grid-template-rows: auto 1fr;
+    align-content: flex-start;
     align-items: flex-start;
 
     gap: 1rem;

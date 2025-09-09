@@ -2,34 +2,74 @@
   import { foundryAdapter } from "src/foundry/foundry.adapter";
   import Clock from "src/lib/v1/atoms/clock.svelte";
   import { getRoleSheetContext } from "src/lib/v1/organisms/role/role.context";
-  import type { IQuartermaster, IQuartermasterActions, IRole } from "src/types/roles.type";
+  import type {
+    IAlchemist,
+    IMercy,
+    IQuartermaster,
+    IQuartermasterActions,
+    IRole,
+    PersonnelType
+  } from "src/types/roles.type";
 
   const context = $derived(getRoleSheetContext() as IRole & IQuartermaster & IQuartermasterActions);
 
-  console.log(context.personnel);
+  const updateAlchemist = (entity: PersonnelType<IAlchemist>, usages: number) => {
+    context.actions.updatePersonnel(entity, { usages });
+  }
+
+  const updateMercy = (entity: PersonnelType<IMercy>) => {
+    const update = {
+      wounded: !entity.conditions.trauma.wounded
+    }
+    context.actions.updatePersonnel(entity, update);
+  }
+
+  const addPersonnel = (type: 'Alchemist' | 'Mercy' | 'Laborer') => {
+    context.actions.addPersonnel(type);
+  }
+
+  const removePersonnel = (_id: string) => {
+    context.actions.removePersonnel(_id);
+  }
 </script>
 
-{#snippet mercy(entity)}
+{#snippet icon(entity)}
   <div class="personnel-icon">
-    <img src="" alt="">
+    <img src={entity.image} alt={entity.name}>
   </div>
-  <div class="personnel-responsibility">Mercy</div>
+{/snippet}
+
+{#snippet remove(entity)}
+  <button class="button personnel-remove-button" aria-label="remove" onclick={() => removePersonnel(entity._id)}>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+{/snippet}
+
+{#snippet mercy(entity)}
+  {@render icon(entity)}
+  <div class="personnel-responsibility">{foundryAdapter.localize(`role.Quartermaster.personnel.Mercy.name`)}</div>
   <label class="personnel-control">
-    <span>Wounded</span>
-    <input type="checkbox" hidden checked={entity.conditions.trauma.wounded}>
+    <span>{foundryAdapter.localize(`role.Quartermaster.personnel.Mercy.wounded`)}</span>
+    <input type="checkbox" hidden checked={entity.conditions.trauma.wounded} onclick={() => updateMercy(entity)}>
     <span class="personnel-checkbox-element"></span>
   </label>
+  {@render remove(entity)}
 {/snippet}
 
 {#snippet alchemist(entity)}
-  <div class="personnel-icon">
-    <img src="" alt="">
-  </div>
-  <div class="personnel-responsibility">Alchemist</div>
+  {@render icon(entity)}
+  <div class="personnel-responsibility">{foundryAdapter.localize(`role.Quartermaster.personnel.Alchemist.name`)}</div>
   <div class="personnel-control">
-    <span>Corruption</span>
-    <Clock size={entity.injuries.corruption.max} current={entity.injuries.corruption.current} onChange={(e) => console.log(e)}/>
+    <span>{foundryAdapter.localize(`role.Quartermaster.personnel.Alchemist.corruption`)}</span>
+    <Clock size={entity.injuries.corruption.max} current={entity.injuries.corruption.current} onChange={(e) => updateAlchemist(entity, e)}/>
   </div>
+  {@render remove(entity)}
+{/snippet}
+
+{#snippet laborer(entity)}
+  {@render icon(entity)}
+  <div class="personnel-responsibility">{foundryAdapter.localize(`role.Quartermaster.personnel.Laborer.name`)}</div>
+  {@render remove(entity)}
 {/snippet}
 
 <div class="container">
@@ -39,30 +79,42 @@
 
   <div class="personnel-list">
     <div class="personnel-header">
-      <span>Mercies</span>
-      <button class="button">Add</button>
+      <span>{foundryAdapter.localize(`role.Quartermaster.personnel.Mercy.plural`)}</span>
+      <button class="button" onclick={() => addPersonnel('Mercy')}>
+        {foundryAdapter.localize(`actions.add`)}
+      </button>
     </div>
     {#each context.personnel.mercy as item}
       <div class="personnel-item">
         {@render mercy(item)}
-        <button class="button personnel-remove-button" aria-label="remove">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
       </div>
     {/each}
   </div>
 
   <div class="personnel-list">
     <div class="personnel-header">
-      <span>Alchemists</span>
-      <button class="button">Add</button>
+      <span>{foundryAdapter.localize(`role.Quartermaster.personnel.Alchemist.plural`)}</span>
+      <button class="button" onclick={() => addPersonnel('Alchemist')}>
+        {foundryAdapter.localize(`actions.add`)}
+      </button>
     </div>
     {#each context.personnel.alchemists as item}
       <div class="personnel-item">
         {@render alchemist(item)}
-        <button class="button personnel-remove-button" aria-label="remove">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+      </div>
+    {/each}
+  </div>
+
+  <div class="personnel-list">
+    <div class="personnel-header">
+      <span>{foundryAdapter.localize(`role.Quartermaster.personnel.Laborer.plural`)}</span>
+      <button class="button" onclick={() => addPersonnel('Laborer')}>
+        {foundryAdapter.localize(`actions.add`)}
+      </button>
+    </div>
+    {#each context.personnel.laborers as item}
+      <div class="personnel-item">
+        {@render laborer(item)}
       </div>
     {/each}
   </div>
@@ -71,13 +123,13 @@
 <style lang="scss">
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.25fr 0.75fr;
     gap: 0.5rem;
 
   }
 
   .header {
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
 
     display: flex;
     justify-content: flex-start;

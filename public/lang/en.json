@@ -428,7 +428,31 @@
         "name": "Quartermaster",
         "action": "<b>Channels</b> is an action that Officers specialize in. Unlike most actions it’s not rolled, but its rating determines its uses per mission. You may spend <b>channels</b> uses to <b>acquire an asset</b> for your squad in a <b>flashback</b>. Roll <b>sway</b> to determine quality. You can spend additional <b>uses</b> to improve the quality as per <b>supply</b> rules. Such assets are temporary or \"on loan\" and will go away when the mission ends.",
         "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through enforcing discipline or strategic planning.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
-        "startup": "<b>Requirements:</b> <i>Discipline:</i> <b>1</b>, <i>Sway:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Channels:</i> <b>1</b>."
+        "startup": "<b>Requirements:</b> <i>Discipline:</i> <b>1</b>, <i>Sway:</i> <b>2</b>.<br><b>Will receive special ability:</b> <i>Channels:</i> <b>1</b>.",
+        "supplies": {
+          "name": "Supplies",
+          "description": "<b>Supply</b>: Gain from mission rewards. Lose from mission penalties. If you lose <b>supply</b> and have none, lose <b>1 morale</b> instead. Spend <b>supply</b> to <b>boost</b> campaign actions and to take additional <b>campaign actions</b>. You can keep a max of 3 <b>supply</b> +1 per Supply Cart (see <b>Materiel</b>) when advancing"
+        },
+        "personnel": {
+          "name": "Personnel",
+          "Alchemist": {
+            "name": "Alchemist",
+            "plural": "Alchemists",
+            "corruption": "Corruption"
+          },
+          "Mercy": {
+            "name": "Mercy",
+            "plural": "Mercies",
+            "wounded": "Wounded"
+          },
+          "Laborer": {
+            "name": "Laborer",
+            "plural": "Laborers"
+          }
+        },
+        "materiel": {
+          "name": "Materiel"
+        }
       },
       "Lorekeeper": {
         "name": "Lorekeeper",
@@ -862,6 +886,9 @@
           "negative": "Is the current <b>pressure</b> higher than 2?"
         }
       }
+    },
+    "actions": {
+      "add": "Add"
     }
   }
 }

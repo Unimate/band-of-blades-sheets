@@ -268,8 +268,9 @@ const mapPersonnel = (data: any): {
     if (item.type === 'personnel') {
       const flag = data.flags['band-of-blades'].items[item._id];
       const personal = {
+        _id: item._id,
         name: item.name,
-        image: item.image,
+        image: item.img,
       }
 
       if (item.name === 'Alchemist') {

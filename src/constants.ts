@@ -21,6 +21,7 @@ export const CONSTANTS = {
     SQUAD: 'band-of-blades.squad',
     HERITAGE: 'band-of-blades.heritage',
     TRAIT: 'band-of-blades.trait',
+    PERSONNEL: 'band-of-blades.personnel',
   },
   MODULE: {
     ID: 'band-of-blades-sheets',
