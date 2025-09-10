@@ -55,6 +55,29 @@
   </label>
 {/snippet}
 
+{#snippet foodStore(entity)}
+  <div class="materiel-wrapper">
+    <div class="materiel-icon">
+      <img src={entity.image} alt={entity.name}>
+    </div>
+    <div class="materiel-name">
+      {foundryAdapter.localize(`role.Quartermaster.materiel.${entity.name}.name`)}
+    </div>
+  </div>
+  {@render remove(entity)}
+  <label class="materiel-control">
+    <span>Usage:</span>
+    <Indicators
+        id={entity._id}
+        label={entity._id}
+        total={6}
+        limit={entity.usage.max}
+        current={entity.usage.current}
+        onClick={(e) => updateMateriel(entity, e)}
+    />
+  </label>
+{/snippet}
+
 {#snippet itemWithCount(entity)}
   <div class="materiel-wrapper">
     <div class="materiel-icon">
@@ -77,7 +100,7 @@
     </div>
     {#each context.materiel.foodStores as item}
       <div class="materiel-item">
-        {@render itemWithUsage(item)}
+        {@render foodStore(item)}
       </div>
     {/each}
   </div>
