@@ -5,7 +5,13 @@ import { CONSTANTS } from "../constants";
 import { mapMarshal, mapQuartermaster, mapRole } from "../mappers/role.mapper";
 import { REMAPPED_SQUADS } from "../dictionaries/squads";
 import { foundryAdapter } from "./foundry.adapter";
-import { type IAlchemist, type IProject, type PersonnelType, RoleSpecialization } from "../types/roles.type";
+import {
+  type IMateriel,
+  type IPersonnel,
+  type IProject, Materiels,
+  type QuartermasterEntityType,
+  RoleSpecialization
+} from "../types/roles.type";
 import { BandOfBladesSheetsEngagementsDialog } from "./dialog.renderer";
 
 
@@ -87,21 +93,24 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
       }
       const key = `system.resources.projects.clock${index + 1}`;
       this.actor.update({ [key]: update });
-      console.log(this.actor);
-
     },
     addPersonnel: async (type: 'alchemist' | 'mercy' | 'laborer') => {
       const list = await foundryAdapter.requestItemsFromCompendium(CONSTANTS.PACKS.PERSONNEL);
       const toCreate = list.filter((item: any) => item.name === type);
       await this.#refreshItems(toCreate);
     },
-    updatePersonnel: async <T>(personnel: PersonnelType<T>, update: Record<string, boolean | number>) => {
-      const key = `flags.band-of-blades.items.${personnel._id}`;
+    updateEntity: async <T>(_id: string, update: Record<string, boolean | number>) => {
+      const key = `flags.band-of-blades.items.${_id}`;
       this.actor.update({ [key]: update });
     },
-    removePersonnel: async (_id: string) => {
+    removeEntity: async (_id: string) => {
       const toDelete = [_id];
       await this.#refreshItems([], toDelete);
+    },
+    addMateriel: async <T>(type: Materiels) => {
+      const list = await foundryAdapter.requestItemsFromCompendium(CONSTANTS.PACKS.MATERIEL);
+      const toCreate = list.filter((item: any) => item.name === type);
+      await this.#refreshItems(toCreate);
     },
   }
 

@@ -192,13 +192,30 @@ export interface IProject {
   color: string;
 }
 
-interface IPersonnel<T = void> {
+export interface IPersonnel {
+  laborers: QuartermasterEntityType<{}>[],
+  alchemists: QuartermasterEntityType<IAlchemist>[],
+  mercy: QuartermasterEntityType<IMercy>[]
+}
+
+export interface IMateriel {
+  foodStores: QuartermasterEntityType<IMaterielWithUsage>[],
+  blackShot: QuartermasterEntityType<IMaterielWithUsage>[],
+  horses: QuartermasterEntityType<IMaterielWithUsage>[],
+  religiousSupplies: QuartermasterEntityType<IMaterielWithUsage>[],
+
+  other: QuartermasterEntityType<{}>[],
+  supplyCart: QuartermasterEntityType<{}>[],
+  siegeWeapons: QuartermasterEntityType<{}>[],
+}
+
+interface IEntity<T = void> {
   _id: string;
   name: string;
   image: string;
 }
 
-export type PersonnelType<T> = IPersonnel & T;
+export type QuartermasterEntityType<T> = IEntity & T;
 
 export interface IAlchemist {
   injuries: {
@@ -212,6 +229,13 @@ export interface IMercy {
   }
 }
 
+export interface IMaterielWithUsage {
+ usage: {
+   current: number;
+   max: number;
+ }
+}
+
 export interface IMarshal {
   morale: number;
   legionnaires: Record<string, ISquadMate[]>;
@@ -223,11 +247,8 @@ export interface IMarshal {
 
 export interface IQuartermaster {
   projects: IProject[];
-  personnel: {
-    laborers: PersonnelType<{}>[],
-    alchemists: PersonnelType<IAlchemist>[],
-    mercy: PersonnelType<IMercy>[]
-  }
+  personnel: IPersonnel;
+  materiel: IMateriel;
 }
 
 export interface IMarshalActions {
@@ -244,7 +265,18 @@ export interface IQuartermasterActions {
   actions: {
     updateProject: (project: IProject, index: number) => Promise<void>;
     addPersonnel: (type: 'Alchemist' | 'Mercy' | 'Laborer') => Promise<void>;
-    updatePersonnel: (personnel: IPersonnel, update: Record<string, number | boolean>) => Promise<void>;
-    removePersonnel: (_id: string) => Promise<void>;
+    addMateriel: (type: Materiels) => Promise<void>;
+    updateEntity: <T>(_id: string, update: Record<string, number | boolean>) => Promise<void>;
+    removeEntity: (_id: string) => Promise<void>;
   }
+}
+
+export enum Materiels {
+  FoodStores = 'Food Stores',
+  BlackShot = 'Black Shot',
+  Horses = 'Horses',
+  ReligiousSupplies = 'Religious Supplies',
+  SiegeWeapons = 'Siege Weapons',
+  Other = 'Other',
+  SupplyCart = 'Supply Cart'
 }

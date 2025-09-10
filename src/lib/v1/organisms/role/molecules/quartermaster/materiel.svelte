@@ -1,28 +1,56 @@
 <script lang="ts">
   import { foundryAdapter } from "src/foundry/foundry.adapter";
   import Indicators from "src/lib/v1/atoms/indicators.svelte";
+  import { getRoleSheetContext } from "src/lib/v1/organisms/role/role.context";
+  import {
+    type IAlchemist,
+    type IQuartermaster,
+    type IQuartermasterActions,
+    type IRole,
+    Materiels,
+    type QuartermasterEntityType
+  } from "src/types/roles.type";
+
+  const context = $derived(getRoleSheetContext() as IRole & IQuartermaster & IQuartermasterActions);
+
+  const removeMateriel = (_id: string) => {
+    context.actions.removeEntity(_id);
+  }
+
+  const addMateriel = (type: Materiels) => {
+    context.actions.addMateriel(type);
+  }
+
+  const updateMateriel = (entity: QuartermasterEntityType<IAlchemist>, usages: number) => {
+    context.actions.updateEntity(entity._id, { usages });
+  }
 </script>
+
+{#snippet remove(entity)}
+  <button class="button materiel-remove-button" aria-label="remove" onclick={() => removeMateriel(entity._id)}>
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+{/snippet}
 
 {#snippet itemWithUsage(entity)}
   <div class="materiel-wrapper">
     <div class="materiel-icon">
-      <img src="" alt="">
+      <img src={entity.image} alt={entity.name}>
     </div>
-    <div class="materiel-name">Food Stores</div>
+    <div class="materiel-name">
+      {foundryAdapter.localize(`role.Quartermaster.materiel.${entity.name}.name`)}
+    </div>
   </div>
-  <button class="button materiel-remove-button" aria-label="remove">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
+  {@render remove(entity)}
   <label class="materiel-control">
     <span>Usage:</span>
     <Indicators
-        id={1}
-        label="wounds"
-        limit={3}
-        total={6}
-        version="secondary"
-        current={0}
-        onClick={(e) => console.log(e)}
+        id={entity._id}
+        label={entity._id}
+        total={entity.usage.max}
+        limit={entity.usage.max}
+        current={entity.usage.current}
+        onClick={(e) => updateMateriel(entity, e)}
     />
   </label>
 {/snippet}
@@ -30,46 +58,112 @@
 {#snippet itemWithCount(entity)}
   <div class="materiel-wrapper">
     <div class="materiel-icon">
-      <img src="" alt="">
+      <img src={entity.image} alt={entity.name}>
     </div>
-    <div class="materiel-name">Food Stores</div>
+    <div class="materiel-name">
+      {foundryAdapter.localize(`role.Quartermaster.materiel.${entity.name}.name`)}
+    </div>
   </div>
-  <button class="button materiel-remove-button" aria-label="remove">
-    <i class="fa-solid fa-xmark"></i>
-  </button>
-  <label class="materiel-control">
-    <span>Usage:</span>
-    <Indicators
-        id={1}
-        label="wounds"
-        limit={3}
-        total={3}
-        version="primary"
-        current={0}
-        onClick={(e) => console.log(e)}
-    />
-  </label>
+  {@render remove(entity)}
 {/snippet}
 
 <div class="container">
-  <div class="header">
-    {foundryAdapter.localize('role.Quartermaster.materiel.name')}
+  <div class="materiel-list">
+    <div class="materiel-header">
+      <span>{foundryAdapter.localize(`role.Quartermaster.materiel.Food Stores.name`)}</span>
+      <button class="button" onclick={() => addMateriel(Materiels.FoodStores)}>
+        {foundryAdapter.localize('actions.add')}
+      </button>
+    </div>
+    {#each context.materiel.foodStores as item}
+      <div class="materiel-item">
+        {@render itemWithUsage(item)}
+      </div>
+    {/each}
   </div>
 
   <div class="materiel-list">
     <div class="materiel-header">
-      <span>Mercies</span>
-      <button class="button">Add</button>
+      <span>{foundryAdapter.localize(`role.Quartermaster.materiel.Black Shot.name`)}</span>
+      <button class="button" onclick={() => addMateriel(Materiels.BlackShot)}>
+        {foundryAdapter.localize('actions.add')}
+      </button>
     </div>
-    <div class="materiel-item">
-      {@render itemWithUsage({})}
+    {#each context.materiel.blackShot as item}
+      <div class="materiel-item">
+        {@render itemWithUsage(item)}
+      </div>
+    {/each}
+  </div>
+
+  <div class="materiel-list">
+    <div class="materiel-header">
+      <span>{foundryAdapter.localize(`role.Quartermaster.materiel.Horses.name`)}</span>
+      <button class="button" onclick={() => addMateriel(Materiels.Horses)}>
+        {foundryAdapter.localize('actions.add')}
+      </button>
     </div>
-    <div class="materiel-item">
-      {@render itemWithUsage({})}
+    {#each context.materiel.horses as item}
+      <div class="materiel-item">
+        {@render itemWithUsage(item)}
+      </div>
+    {/each}
+  </div>
+
+  <div class="materiel-list">
+    <div class="materiel-header">
+      <span>{foundryAdapter.localize(`role.Quartermaster.materiel.Religious Supplies.name`)}</span>
+      <button class="button" onclick={() => addMateriel(Materiels.ReligiousSupplies)}>
+        {foundryAdapter.localize('actions.add')}
+      </button>
     </div>
-    <div class="materiel-item">
-      {@render itemWithUsage({})}
+    {#each context.materiel.religiousSupplies as item}
+      <div class="materiel-item">
+        {@render itemWithUsage(item)}
+      </div>
+    {/each}
+  </div>
+
+  <div class="materiel-list">
+    <div class="materiel-header">
+      <span>{foundryAdapter.localize(`role.Quartermaster.materiel.Siege Weapons.name`)}</span>
+      <button class="button" onclick={() => addMateriel(Materiels.SiegeWeapons)}>
+        {foundryAdapter.localize('actions.add')}
+      </button>
     </div>
+    {#each context.materiel.siegeWeapons as item}
+      <div class="materiel-item">
+        {@render itemWithCount(item)}
+      </div>
+    {/each}
+  </div>
+
+  <div class="materiel-list">
+    <div class="materiel-header">
+      <span>{foundryAdapter.localize(`role.Quartermaster.materiel.Supply Cart.name`)}</span>
+      <button class="button" onclick={() => addMateriel(Materiels.SupplyCart)}>
+        {foundryAdapter.localize('actions.add')}
+      </button>
+    </div>
+    {#each context.materiel.supplyCart as item}
+      <div class="materiel-item">
+        {@render itemWithCount(item)}
+      </div>
+    {/each}
+  </div>
+
+  <div class="materiel-list">
+    <div class="materiel-header">
+      <span>{foundryAdapter.localize(`role.Quartermaster.materiel.Other.name`)}</span>
+      <button class="button" onclick={() => addMateriel(Materiels.Other)}>
+        {foundryAdapter.localize('actions.add')}
+      </button>
+    </div>
+    {#each context.materiel.other as item}
+      <div class="materiel-item">
+        {@render itemWithCount(item)}
+      </div>
+    {/each}
   </div>
 </div>
 
@@ -79,19 +173,6 @@
     grid-template-columns: 1fr;
     gap: 0.5rem;
 
-  }
-
-  .header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 1.25rem 0 .5rem;
-    border-radius: 4px;
-    font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
-    color: var(--band-of-blades-sheets-font-secondary-color);
-    font-size: 1.125rem;
-    text-transform: uppercase;
-    background-color: var(--band-of-blades-sheets-background-secondary-color);
   }
 
   .materiel-panel {
@@ -149,6 +230,7 @@
       justify-content: flex-start;
       align-items: center;
       gap: 0.25rem;
+      overflow: hidden;
     }
 
     .materiel-icon {
@@ -171,6 +253,10 @@
     .materiel-name {
       color: var(--band-of-blades-sheets-font-primary-color);
       font-size: 1rem;
+
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     .materiel-indicators {

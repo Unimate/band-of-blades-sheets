@@ -6,14 +6,14 @@ import {
 } from "../types/actor.type";
 import { SQUADS } from "../dictionaries/squads";
 import {
-  type IAlchemist,
   type IMarshal,
-  type IMercy,
+  type IMateriel,
+  type IPersonnel,
   type IProject,
   type IQuartermaster,
   type IRole,
   type ISquadMate,
-  type PersonnelType,
+  type QuartermasterEntityType,
   RoleHeritage,
   type RoleLook,
   type RolePersonality,
@@ -103,11 +103,9 @@ export const mapMarshal = async (data: any): Promise<IMarshal> => {
 }
 
 export const mapQuartermaster = async (data: any): Promise<IQuartermaster> => {
-  console.log(data);
-
   return {
     projects: mapProjects(data),
-    personnel: mapPersonnel(data)
+    ...mapQuartermasterEntities(data)
   };
 }
 
@@ -249,24 +247,27 @@ const mapProjects = (data: any): IProject[] => {
   });
 }
 
-const mapPersonnel = (data: any): {
-  laborers: PersonnelType<{}>[],
-  alchemists: PersonnelType<IAlchemist>[],
-  mercy: PersonnelType<IMercy>[]
-} => {
-  const personnel: {
-    laborers: PersonnelType<{}>[],
-    alchemists: PersonnelType<IAlchemist>[],
-    mercy: PersonnelType<IMercy>[]
-  } = {
+const mapQuartermasterEntities = (data: any): { personnel: IPersonnel, materiel: IMateriel } => {
+  const personnel: IPersonnel = {
     laborers: [],
     alchemists: [],
     mercy: []
   };
+  const materiel: IMateriel = {
+    foodStores: [],
+    blackShot: [],
+    horses: [],
+    religiousSupplies: [],
+
+    other: [],
+    supplyCart: [],
+    siegeWeapons: [],
+  };
 
   for (const item of data.items) {
+    const flag = data.flags['band-of-blades'].items[item._id];
+
     if (item.type === 'personnel') {
-      const flag = data.flags['band-of-blades'].items[item._id];
       const personal = {
         _id: item._id,
         name: item.name,
@@ -286,7 +287,7 @@ const mapPersonnel = (data: any): {
         personnel.mercy.push({
           ...personal,
           conditions: {
-            trauma: { wounded: flag.wounded },
+            trauma: { wounded: flag?.wounded || false },
           }
         })
       }
@@ -295,7 +296,66 @@ const mapPersonnel = (data: any): {
         personnel.laborers.push(personal);
       }
     }
+
+    if (item.type === 'materiel') {
+      const material = {
+        _id: item._id,
+        name: item.name,
+        image: item.img,
+      }
+      let key = '';
+
+      switch (item.name) {
+        case 'Food Stores': {
+          key = 'foodStores';
+          break;
+        }
+        case 'Black Shot': {
+          key = 'blackShot';
+          break;
+        }
+        case 'Horses': {
+          key = 'horses';
+          break;
+        }
+        case 'Religious Supplies': {
+          key = 'religiousSupplies';
+          break;
+        }
+      }
+
+      if (key !== '') {
+        materiel[key as keyof IMateriel].push({
+          ...material,
+          usage: {
+            current: Number(flag?.usages || 0),
+            max: Number(flag?.usagesMax || 3)
+          }
+        });
+      }
+
+      key = '';
+
+      switch (item.name) {
+        case 'Siege Weapons': {
+          key = 'siegeWeapons';
+          break;
+        }
+        case 'Other': {
+          key = 'other';
+          break;
+        }
+        case 'Supply Cart': {
+          key = 'supplyCart';
+          break;
+        }
+      }
+
+      if (key !== '') {
+        materiel[key as keyof IMateriel].push({ ...material as QuartermasterEntityType<any> });
+      }
+    }
   }
 
-  return personnel;
+  return { personnel, materiel };
 }

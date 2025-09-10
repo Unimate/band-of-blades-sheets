@@ -445,7 +445,28 @@
           }
         },
         "materiel": {
-          "name": "Ресурсы"
+          "name": "Ресурсы",
+          "Food Stores": {
+            "name": "Продовольствие"
+          },
+          "Black Shot": {
+            "name": "Чёрные пули"
+          },
+          "Horses": {
+            "name": "Лошади"
+          },
+          "Religious Supplies": {
+            "name": "Религиозные принадлежности"
+          },
+          "Siege Weapons": {
+            "name": "Осадные орудия"
+          },
+          "Other": {
+            "name": "Прочее"
+          },
+          "Supply Cart": {
+            "name": "Телеги"
+          }
         }
       },
       "Lorekeeper": {

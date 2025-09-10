@@ -451,7 +451,28 @@
           }
         },
         "materiel": {
-          "name": "Materiel"
+          "name": "Materiel",
+          "Food Stores": {
+            "name": "Food Stores"
+          },
+          "Black Shot": {
+            "name": "Black Shot"
+          },
+          "Horses": {
+            "name": "Horses"
+          },
+          "Religious Supplies": {
+            "name": "Religious Supplies"
+          },
+          "Siege Weapons": {
+            "name": "Siege Weapons"
+          },
+          "Other": {
+            "name": "Other"
+          },
+          "Supply Cart": {
+            "name": "Supply Cart"
+          }
         }
       },
       "Lorekeeper": {

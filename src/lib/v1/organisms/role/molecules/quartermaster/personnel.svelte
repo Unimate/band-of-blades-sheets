@@ -8,20 +8,20 @@
     IQuartermaster,
     IQuartermasterActions,
     IRole,
-    PersonnelType
+    QuartermasterEntityType
   } from "src/types/roles.type";
 
   const context = $derived(getRoleSheetContext() as IRole & IQuartermaster & IQuartermasterActions);
 
-  const updateAlchemist = (entity: PersonnelType<IAlchemist>, usages: number) => {
-    context.actions.updatePersonnel(entity, { usages });
+  const updateAlchemist = (entity: QuartermasterEntityType<IAlchemist>, usages: number) => {
+    context.actions.updateEntity(entity._id, { usages });
   }
 
-  const updateMercy = (entity: PersonnelType<IMercy>) => {
+  const updateMercy = (entity: QuartermasterEntityType<IMercy>) => {
     const update = {
       wounded: !entity.conditions.trauma.wounded
     }
-    context.actions.updatePersonnel(entity, update);
+    context.actions.updateEntity(entity._id, update);
   }
 
   const addPersonnel = (type: 'Alchemist' | 'Mercy' | 'Laborer') => {
@@ -29,7 +29,7 @@
   }
 
   const removePersonnel = (_id: string) => {
-    context.actions.removePersonnel(_id);
+    context.actions.removeEntity(_id);
   }
 </script>
 
@@ -73,10 +73,6 @@
 {/snippet}
 
 <div class="container">
-  <div class="header">
-    {foundryAdapter.localize('role.Quartermaster.personnel.name')}
-  </div>
-
   <div class="personnel-list">
     <div class="personnel-header">
       <span>{foundryAdapter.localize(`role.Quartermaster.personnel.Mercy.plural`)}</span>
@@ -123,24 +119,9 @@
 <style lang="scss">
   .container {
     display: grid;
-    grid-template-columns: 1fr 1.25fr 0.75fr;
+    grid-template-columns: 1fr 1.125fr .875fr;
     gap: 0.5rem;
 
-  }
-
-  .header {
-    grid-column: 1 / 4;
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 1.25rem 0 .5rem;
-    border-radius: 4px;
-    font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
-    color: var(--band-of-blades-sheets-font-secondary-color);
-    font-size: 1.125rem;
-    text-transform: uppercase;
-    background-color: var(--band-of-blades-sheets-background-secondary-color);
   }
 
   .personnel-panel {
@@ -208,7 +189,7 @@
 
     .personnel-responsibility {
       color: var(--band-of-blades-sheets-font-primary-color);
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
 
     .personnel-control {

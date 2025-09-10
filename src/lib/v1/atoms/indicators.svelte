@@ -1,8 +1,4 @@
 <script lang="ts">
-  import { getActorSheetContext } from "src/lib/v1/organisms/actor/actor.context";
-  import type { IActor } from "src/types/actor.type";
-  import type { IActions } from "src/types/actions.type";
-
   const { id, onClick, label, total, limit = total, current, version = 'primary', className = '' } = $props();
 
   const handleValue = (ephemeral: number) => {
@@ -12,7 +8,6 @@
       value = 0;
     }
     onClick(value);
-
   }
 </script>
 
@@ -20,12 +15,11 @@
   {#each { length: total }, steps}
     {@const ephemeral = total - steps}
     <input
-      onclick={() => handleValue(Number(ephemeral))}
+      onclick={() => handleValue(ephemeral)}
       type="checkbox"
       hidden
       id={id + '-' + label + '-' + steps}
-      name={label + '-input'}
-      value="{ephemeral}"
+      value={ephemeral}
       checked={current === ephemeral}
       disabled={ephemeral > limit}
     />
