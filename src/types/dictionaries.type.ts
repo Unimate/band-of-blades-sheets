@@ -9,3 +9,8 @@ export interface IDictionary {
     squads: ISquads[];
   }
 }
+
+export interface IUsage {
+  current: number;
+  max: number;
+}

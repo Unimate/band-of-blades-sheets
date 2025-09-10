@@ -1,4 +1,5 @@
-import { type IStress, type ITrauma } from "./actor.type";
+import { type ITrauma } from "./actor.type";
+import type { IUsage } from "./dictionaries.type";
 
 export interface ISquadMate {
   _id: string;
@@ -8,7 +9,7 @@ export interface ISquadMate {
   },
   injuries: {
     injuries: {
-      stress: IStress;
+      stress: IUsage;
     };
     conditions: {
       trauma: ITrauma;
@@ -219,7 +220,7 @@ export type QuartermasterEntityType<T> = IEntity & T;
 
 export interface IAlchemist {
   injuries: {
-    corruption: { current: number, max: number };
+    corruption: IUsage;
   }
 }
 
@@ -230,10 +231,7 @@ export interface IMercy {
 }
 
 export interface IMaterielWithUsage {
- usage: {
-   current: number;
-   max: number;
- }
+ usage: IUsage;
 }
 
 export interface IMarshal {
@@ -243,12 +241,6 @@ export interface IMarshal {
   dictionaries: {
     squads: { name: string; image: string; description: string; }[];
   }
-}
-
-export interface IQuartermaster {
-  projects: IProject[];
-  personnel: IPersonnel;
-  materiel: IMateriel;
 }
 
 export interface IMarshalActions {
@@ -261,6 +253,13 @@ export interface IMarshalActions {
   }
 }
 
+export interface IQuartermaster {
+  projects: IProject[];
+  personnel: IPersonnel;
+  materiel: IMateriel;
+  supply: IUsage;
+}
+
 export interface IQuartermasterActions {
   actions: {
     updateProject: (project: IProject, index: number) => Promise<void>;
@@ -268,6 +267,7 @@ export interface IQuartermasterActions {
     addMateriel: (type: Materiels) => Promise<void>;
     updateEntity: <T>(_id: string, update: Record<string, number | boolean>) => Promise<void>;
     removeEntity: (_id: string) => Promise<void>;
+    updateSupply: (value: number) => Promise<void>;
   }
 }
 

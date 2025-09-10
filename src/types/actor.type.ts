@@ -1,4 +1,5 @@
 import type { ILoadItem } from "./loadout.type";
+import type { IUsage } from "./dictionaries.type";
 
 export enum SpecialistEnum {
   Heavy = 'heavy',
@@ -156,19 +157,9 @@ export enum Condition {
   Visions = 'visions',
 }
 
-export interface IStress {
-  current: number;
-  max: number;
-}
-
 export interface ITrauma {
   max: number;
   types: Trauma[];
-}
-
-export interface ICorruption {
-  current: number;
-  max: number;
 }
 
 export interface IBlight {
@@ -177,7 +168,7 @@ export interface IBlight {
 }
 
 export interface IInjuries {
-  injuries: { stress: IStress; corruption: ICorruption; };
+  injuries: { stress: IUsage; corruption: IUsage; };
   conditions: { trauma: ITrauma; blight: IBlight };
 }
 

@@ -104,6 +104,7 @@ export const mapMarshal = async (data: any): Promise<IMarshal> => {
 
 export const mapQuartermaster = async (data: any): Promise<IQuartermaster> => {
   return {
+    supply: { current: Number(data.system.resources.supply.value), max: Number(data.system.resources.supply.max) },
     projects: mapProjects(data),
     ...mapQuartermasterEntities(data)
   };

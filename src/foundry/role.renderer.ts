@@ -6,10 +6,8 @@ import { mapMarshal, mapQuartermaster, mapRole } from "../mappers/role.mapper";
 import { REMAPPED_SQUADS } from "../dictionaries/squads";
 import { foundryAdapter } from "./foundry.adapter";
 import {
-  type IMateriel,
-  type IPersonnel,
-  type IProject, Materiels,
-  type QuartermasterEntityType,
+  type IProject,
+  Materiels,
   RoleSpecialization
 } from "../types/roles.type";
 import { BandOfBladesSheetsEngagementsDialog } from "./dialog.renderer";
@@ -112,6 +110,9 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
       const toCreate = list.filter((item: any) => item.name === type);
       await this.#refreshItems(toCreate);
     },
+    updateSupply: async (value: number) => {
+      this.actor.update({ 'system.resources.supply.value': value });
+    }
   }
 
   static DEFAULT_OPTIONS = {

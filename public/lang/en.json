@@ -910,6 +910,9 @@
     },
     "actions": {
       "add": "Add"
+    },
+    "counter": {
+      "limit": "Max:"
     }
   }
 }
