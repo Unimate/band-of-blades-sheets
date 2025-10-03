@@ -37,20 +37,20 @@
 
   .container {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 140px 1fr;
   }
 
   .title {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 0 1.25rem 0 .5rem;
+    padding: 0 0 0 .5rem;
 
     border-radius: 4px 0 0 4px;
 
     font-family: var(--band-of-blades-sheets-font-vinque), Arial, sans-serif;
     color: var(--band-of-blades-sheets-font-secondary-color);
-    font-size: 1.125rem;
+    font-size: 1rem;
     text-transform: uppercase;
 
     background-color: var(--band-of-blades-sheets-background-secondary-color);
@@ -103,13 +103,13 @@
 
       &.low {
         left: 0;
-        width: 27.5%;
+        width: 26.5%;
         background-color: var(--band-of-blades-sheets-background-secondary-color);
         z-index: 3;
       }
 
       &.medium {
-        left: 27.5%;
+        left: 26.5%;
         width: 40%;
         background-color: var(--band-of-blades-sheets-background-quaternary-color);
         z-index: 2;
@@ -117,8 +117,8 @@
 
       &.high {
         border-radius: 0 4px 4px 0;
-        left: 67.5%;
-        width: 32.5%;
+        left: 65.5%;
+        width: 34.5%;
         background-color: var(--band-of-blades-sheets-background-tertiary-color);
         z-index: 1;
         &:after {

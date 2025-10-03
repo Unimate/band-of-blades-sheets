@@ -4,7 +4,7 @@
 
   const { project, onProjectChanged } = $props();
 
-  const steps = [2, 3, 4, 5, 6, 8, 10, 12];
+  const steps = [4, 6, 8, 10, 12];
 
   let stepsForProject = $state(2);
 

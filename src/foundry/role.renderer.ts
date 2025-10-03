@@ -2,7 +2,7 @@ import { mount, unmount } from "svelte";
 import RoleSheet from '../lib/v1/organisms/role/root.svelte';
 import { CoarseReactivityProvider } from "../utils/reactivity/reactivity.svelte";
 import { CONSTANTS } from "../constants";
-import { mapMarshal, mapQuartermaster, mapRole } from "../mappers/role.mapper";
+import { mapCommander, mapMarshal, mapQuartermaster, mapRole } from "../mappers/role.mapper";
 import { REMAPPED_SQUADS } from "../dictionaries/squads";
 import { foundryAdapter } from "./foundry.adapter";
 import {
@@ -112,6 +112,17 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
     },
     updateSupply: async (value: number) => {
       this.actor.update({ 'system.resources.supply.value': value });
+    },
+
+    updateIntel: async (value: number) => {
+      this.actor.update({ 'system.resources.intel': value });
+    },
+    updatePressure: (value: number) => {
+      this.actor.update({ 'system.resources.pressure': value });
+    },
+    updateTimer: (position: string, value: number) => {
+      const name = `timeClock${position === 'first' ? 1 : position === 'second' ? 2 : 3}`;
+      this.actor.update({ [`system.resources.time.${name}.value`]: value });
     }
   }
 
@@ -146,6 +157,10 @@ export class BandOfBladesSheetsRole extends foundry.applications.sheets.ActorShe
         }
         case RoleSpecialization.Quartermaster: {
           specialization = await mapQuartermaster(this.actor);
+          break;
+        }
+        case RoleSpecialization.Commander: {
+          specialization = await mapCommander(this.actor);
         }
       }
     }

@@ -2,6 +2,7 @@
   import Information from "./molecules/information.svelte";
   import Marshal from "./organisms/marshal.svelte";
   import Quartermaster from "./organisms/quartermaster.svelte";
+  import Commander from "./organisms/commander.svelte";
   import { getRoleSheetContext } from "src/lib/v1/organisms/role/role.context";
   import { type IMarshalActions, type IRole, RoleSpecialization } from "src/types/roles.type";
   import { foundryAdapter } from "src/foundry/foundry.adapter";
@@ -58,6 +59,9 @@
   {/if}
   {#if context.character.specialization === RoleSpecialization.Quartermaster}
     <Quartermaster tab={tab} />
+  {/if}
+  {#if context.character.specialization === RoleSpecialization.Commander}
+    <Commander tab={tab} />
   {/if}
 </main>
 

@@ -6,6 +6,7 @@ import {
 } from "../types/actor.type";
 import { SQUADS } from "../dictionaries/squads";
 import {
+  type ICommander,
   type IMarshal,
   type IMateriel,
   type IPersonnel,
@@ -108,6 +109,27 @@ export const mapQuartermaster = async (data: any): Promise<IQuartermaster> => {
     projects: mapProjects(data),
     ...mapQuartermasterEntities(data)
   };
+}
+
+export const mapCommander = async (data: any): Promise<ICommander> => {
+  return {
+    intel: { current: Number(data.system.resources.intel), max: 99 },
+    pressure: { current: Number(data.system.resources.pressure), max: 99 },
+    timers: {
+      first: {
+        current: Number(data.system.resources.time.timeClock1.value),
+        max: Number(data.system.resources.time.timeClock1.type)
+      },
+      second: {
+        current: Number(data.system.resources.time.timeClock2.value),
+        max: Number(data.system.resources.time.timeClock2.type)
+      },
+      third: {
+        current: Number(data.system.resources.time.timeClock3.value),
+        max: Number(data.system.resources.time.timeClock3.type)
+      },
+    }
+  }
 }
 
 const getActorsBySpecialization = (game: any, specializations: Specialization[]) => {
@@ -266,7 +288,7 @@ const mapQuartermasterEntities = (data: any): { personnel: IPersonnel, materiel:
   };
 
   for (const item of data.items) {
-    const flag = data.flags['band-of-blades'].items[item._id];
+    const flag = data.flags['band-of-blades']?.items?.[item._id];
 
     if (item.type === 'personnel') {
       const personal = {

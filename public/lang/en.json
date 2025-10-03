@@ -420,9 +420,38 @@
       },
       "Commander": {
         "name": "Commander",
-        "action": "<b>Doctor</b> is an action that Medics specialize and train in. Unlike most actions it’s not rolled, but its rating determines its <b>uses</b> per mission. While on a mission, you may spend <b>doctor</b> uses to treat a fellow Legionnaire so they ignore all wound penalties for a scene. <b>Level 4 harm</b> is still lethal.",
-        "advancement": "<p>At the end of each mission, mark <b>1 xp</b> (playbook or attribute)...</p><ul><li>When you roll a desperate action, mark <b>1 xp</b> in that action’s attribute.</li><li>If you survived the mission.</li><li>If you helped your squad through medical knowledge or emotional comfort.</li><li>If you brought into play your heritage or traumas (<b>2 xp</b> if you did both).</li><li>Per <b>threat</b> of the highest threat opponent on the mission.</li></ul>",
-        "startup": "<b>Requirements:</b> <i>Research:</i> <b>2</b>, <i>Maneuver:</i> <b>1</b>, <i>Consort:</i> <b>1</b>, <i>Discipline:</i> <b>1</b>.<br><b>Will receive special ability:</b> <i>Doctor:</i> <b>1</b>."
+        "pressure": {
+          "name": "Pressure",
+          "tip": "A measure of how surrounded you are by undead",
+          "description": "<b>Pressure</b>: When you <b>advance</b>, roll <b>pressure</b> minus Horses uses spent, and add <b>time</b> below. (<b>1-3</b>: One. <b>4/5</b>: Two. <b>6</b>: Three. <b>crit</b>: Five) Then reset <b>pressure</b> to 0. Add pressure when <b>time passes</b> (after <b>campaign actions</b>), or when there is a pressure penalty for a failed mission."
+        },
+        "intel": {
+          "name": "Intel",
+          "tip": "A measure of how much you know about undead movements and the war",
+          "description": "<b>Intel</b>: Spend 1 <b>intel</b> to add +<b>1d</b> to any <b>engagement roll</b>, or to access a <b>special mission</b> in a location in addition to your mission priorities. Gain <b>intel</b> from Recon mission rewards. Before you pick primary and secondary missions, ask <b>intel</b> questions based on how much intel you hold.",
+          "questions": {
+            "header": "<b>if you hold {intel}+ intel</b>, ask one of the following questions:",
+            "list": {
+              "zero": "<ul><li>What’s the highest threat we can expect?</li><li>How much travel should we expect?</li><li>What would be a useful item to bring?</li><li>What are 2 approaches we could use here?</li><li>How’s our Chosen feel about the missions?</li><li>Which squads distrust or don’t respect the leadership?</li></ul>",
+              "first": "<ul><li>What’s useful to bring on this mission?</li><li>Who’s invested in this mission?</li><li>What’s a challenge on this mission?</li><li>Whose troops might we expect to encounter on these missions?</li><li>What resources or benefits might we find at a specific location ahead?</li><li>What might be a weakness of an Elite we have encountered?</li><li>What might be a craving or instinct of an Elite we have encountered?</li></ul>",
+              "second": "<ul><li>Which Infamous or Lieutenant might we face on this mission?</li><li>What’s the main weakness of the undead’s position on this mission?</li><li>Is this related to a previous mission? How?</li><li>Which way are the Broken moving?</li><li>What is a weakness of an Infamous we’ve seen previously?</li><li>What challenges or problems are inherent in a specific location ahead?</li></ul>",
+              "third": "<ul><li>What is the weakness of a Lieutenant we’ve encountered previously?</li><li>What is a craving or instinct of a Lieutenant we’ve encountered previously?</li><li>What is a specific Broken researching?</li><li>What special missions have we heard of at a location ahead?</li><li>What news of the Cinder King?</li></ul>"
+            }
+          }
+        },
+        "time": {
+          "name": "time",
+          "tip": "How long you have to get to Skydagger, and how undead strength grows",
+          "description": "<b>Time:</b> Add 1 tick when <b>time passes</b>, or when you advance and roll <b>pressure</b>, and when missions have a <b>time</b> penalty. Reduce the clocks when mission rewards include <b>time</b>. If you do not complete the missions at Skydagger Keep before the last clock is filled, you lose the game.",
+          "first": {
+            "title": "summer ends",
+            "description": "The South falls"
+          },
+          "second": {
+            "title": "fall deepens",
+            "description": "Panya burns"
+          }
+        }
       },
       "Quartermaster": {
         "name": "Quartermaster",

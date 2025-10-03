@@ -10,5 +10,9 @@ export const TABS: Record<string, ({ priority: string; icon: string; })[]> = {
     { priority: 'primary', icon: ' ra-tower' },
     { priority: 'secondary', icon: 'ra-anvil' },
     { priority: 'tertiary', icon: 'ra-book' },
+  ],
+  [RoleSpecialization.Commander]: [
+    { priority: 'primary', icon: 'ra-shield' },
+    { priority: 'tertiary', icon: 'ra-book' },
   ]
 }

@@ -271,6 +271,25 @@ export interface IQuartermasterActions {
   }
 }
 
+export interface ICommander {
+  intel: IUsage;
+  pressure: IUsage;
+  timers: {
+    first: IUsage;
+    second: IUsage;
+    third: IUsage;
+  }
+}
+
+export interface ICommanderActions {
+  actions: {
+    updateIntel: (value: number) => Promise<void>;
+    updatePressure: (value: number) => Promise<void>;
+    updateTimer: (position: string, value: number) => Promise<void>;
+  }
+}
+
+
 export enum Materiels {
   FoodStores = 'Food Stores',
   BlackShot = 'Black Shot',
